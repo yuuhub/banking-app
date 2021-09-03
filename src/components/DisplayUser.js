@@ -56,7 +56,7 @@ const DisplayUser = () => {
         const newList = [...users];
         user.id=50;
         newList.push(user);
-        setUser(newList)
+        setUsers(newList)
     }
 
     return (
