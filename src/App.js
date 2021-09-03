@@ -1,25 +1,50 @@
-import logo from './logo.svg';
 import './App.css';
+import { Component, useState } from 'react';
+import React from 'react';
+import CreateUser from './components/CreateUser';
+import Modal from './components/Modal';
+import Deposit from './components/Deposit';
+import DisplayUser from './components/DisplayUser'
 
 function App() {
+
+  const [openModal, setOpenModal] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <DisplayUser />
+      <CreateUser />
+      <Deposit />
+      <button className='openModalBtn' onClick={() => {setOpenModal(true)}}>Open</button>
+      {openModal && <Modal closeModal={setOpenModal}/>}
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
+
+// class App extends Component {
+//   constructor(props) {
+//     super(props)
+//     this.state = {openModal= false}
+//     this.handleChange = this.handleChange.bind(this);
+//   }
+  
+//   handleChange(event) {
+//     this.setState({
+//        openModal= true
+//     });
+//   }
+
+//   render() {
+//     return (
+//       <div className='App'>
+//         <CreateUser />
+//         <button className='openModalBtn' onClick={() => {setOpenModal(true)}}>Open</button>
+//         {openModal && <Modal closeModal={setOpenModal}/>}
+//       </div>
+//     )
+//   }
+// }
+
+// export default App
