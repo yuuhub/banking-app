@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
-
+import {get_last_key_from_localstorage, create_user} from '../bank_functionalities/bank_functions';
 class CreateUser extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            id: '',
-            firstname: '',
-            lastname: '',
+            id: (get_last_key_from_localstorage()+1).toString(),
+            username: '',
             balance: '',
         }
         this.handleSubmit=this.handleSubmit.bind(this)
@@ -21,11 +20,15 @@ class CreateUser extends Component {
     }
 
     handleSubmit = (e) => {
-        alert(`${this.state.username} is registered succesfully`)
-        console.log(this.state);
+
+        /** Invoke create_user function */
+        create_user(this.state);
+
+        console.log(`${this.state.username} is registered succesfully`)
+        
         this.setState({
-            firstname: '',
-            lastname: '',
+            id: (get_last_key_from_localstorage()+1).toString(),
+            username: '',
             balance: '',
         })
         e.preventDefault()
@@ -35,8 +38,7 @@ class CreateUser extends Component {
         return (
             <form className='createUserContainer' onSubmit={this.handleSubmit}>
                 <h1>User Registration</h1>
-                <label>firstname :</label> <input type="text" name='firstname' value={this.state.firstname} onChange={this.handleChange}/> <br />
-                <label>lastname :</label> <input type="text" name='lastname' value={this.state.lastname} onChange={this.handleChange}/> <br />
+                <label>username :</label> <input type="text" name='username' value={this.state.username} onChange={this.handleChange}/> <br />
                 <label>balance :</label> <input type="number" name='balance'value={this.state.balance} onChange={this.handleChange}/> <br />
                 <input type="submit" value="Submit" />
             </form>

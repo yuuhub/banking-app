@@ -1,5 +1,5 @@
 import React from 'react'
-import DisplayUser from './DisplayUser'
+
 
 const UserTable = ({users, onAccountTypeChange, onDeleteUser}) => {
     return (
