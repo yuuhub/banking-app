@@ -1,69 +1,125 @@
-/* check if localStorage works well */
-
-if (typeof localStorage === "undefined" || localStorage === null) {
-    var LocalStorage = require('node-localstorage').LocalStorage;
-    localStorage = new LocalStorage('./scratch');
-}
 /**
  * Function that obtains the last key used by the localStorage
  * used for creating object's keys.
  */
-function get_last_key(){
+export function get_last_key_from_localstorage() {
     //console.log(localStorage._keys.length);
-    return localStorage._keys.length;
+    return localStorage.length + 1;
 }
 
 /**
- * Required functionalities
- * Here are the required functions:
-    create_user(user, balance)
-    function creates new user in the system
-    New user has zero balance (or an optional initial balance)
-    user (argument) is any string value
-    deposit(user, amount)
-    increases user's balance by amount value
-    returns new_balance of the user
-    withdraw(user, amount)
-    decreases user's balance by amount value
-    returns new_balance of the user
-    send(from_user, to_user, amount)
-    decreases from_user's balance by amount value
-    increases to_user's balance in amount value
-    returns balance of from_user and to_user in given format
-    get_balance(user)
-    returns balance of the user in given format (₱xx,xxx.xx or Phpxx,xxx.xx)
-    list_users()
-    returns all users
+ * Function that handles the creation of users and passing it 
+ * to the localStorage.
+ * @param {javascript object from the submitted form data} user 
  */
 
-/**
- * takes in username and balance from the react component, 
- * and passes it to the provided localStorage.
- * 
- */
-function create_user(user, balance = 0){
-    let user_info = {
-        'name': user, 
-        'balance': balance
-    }
-    if(get_last_key() === 0){
-        localStorage.setItem(1, JSON.stringify(user_info));
-    } else {
-        localStorage.setItem(get_last_key()+1, JSON.stringify(user_info));
-    }
+export function create_user(user){
+    //console.log(user);
+    localStorage.setItem(get_last_key_from_localstorage(), JSON.stringify(user)); 
 }
+
 /**
- * 
+ * Function that returns the data from localStorage as
+ * a list.
+ * @param {*} userData 
  */
-function deposit(user, amount = 0){
-    let last_key = get_last_key();
-    let successful = false;
-    for(var i = 0; i < last_key; i++){
-        let user_object = JSON.parse(window.localStorage.getItem(i));
-        if (user_object.name === user){
-            user_object.balance = amount;
-            break;
+export function list_users(userData){
+    for (var key in localStorage){
+        let user_rec = JSON.parse(localStorage.getItem(key));
+        if(user_rec !== null){
+            let user = {
+                id: key,
+                username: user_rec['username'],
+                balance: user_rec['balance'],
+                accountType: user_rec['accountType'],
+            }
+            userData.push(user);
+
         }
+
+
+    }
+    
+    return userData;
+}
+
+
+export function search_username(username_to_search){
+    let key_of_username = null;
+    for(var key in localStorage){
+        //read the content from localStorage
+        let user_rec = JSON.parse(localStorage.getItem(key));
+        if (user_rec !== null){
+            //check if username_to_search is the same 
+            if(username_to_search === user_rec['username']){
+                key_of_username = key;
+            }
+        }
+
     }
 
+    return key_of_username; //null or key of the username to look at
+
 }
+
+export function deposit(username_to_search, amount){
+    let search_key = search_username(username_to_search);
+
+    // object destructuring
+    let {accountType, username, balance} = JSON.parse(localStorage.getItem(search_key));
+    
+    let curr_bal = parseFloat(balance);
+    let curr_amt = parseFloat(amount);
+    let new_bal = curr_amt + curr_bal;
+
+    let user_info = {
+        accountType: accountType,
+        username: username,
+        balance: new_bal.toString(),
+    }
+
+    localStorage.setItem(search_key, JSON.stringify(user_info));
+
+}
+
+export function balance(username_to_search){
+    let search_key = search_username(username_to_search);
+
+    // object destructuring
+    let {accountType, username, balance} = JSON.parse(localStorage.getItem(search_key));
+    
+    let curr_bal = parseFloat(balance);
+
+    return curr_bal;
+}
+
+
+export function withdraw(username_to_search, amount){
+    let search_key = search_username(username_to_search);
+
+    // object destructuring
+    let {accountType, username, balance} = JSON.parse(localStorage.getItem(search_key));
+    
+    let curr_bal = parseFloat(balance);
+    let curr_amt = parseFloat(amount);
+    let new_bal = curr_amt - curr_bal;
+
+    let user_info = {
+        accountType: accountType,
+        username: username,
+        balance: new_bal.toString(),
+    }
+
+    localStorage.setItem(search_key, JSON.stringify(user_info));
+
+}
+
+
+/*
+export function send(from_user, to_user, amount){
+    let successful = false;
+    let last_key = get_last_key_from_localstorage();
+
+
+}
+*/

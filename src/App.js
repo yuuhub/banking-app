@@ -9,7 +9,6 @@ import DisplayUser from './components/DisplayUser'
 function App() {
 
   const [openModal, setOpenModal] = useState(false);
-
   return (
     <div className='App'>
       <DisplayUser />
