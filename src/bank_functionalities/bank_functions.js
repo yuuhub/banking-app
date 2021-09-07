@@ -1,3 +1,6 @@
+import { getCurrentDate } from "./utils";
+import { accountNoGenerator } from "./utils";
+
 /**
  * Function that obtains the last key used by the localStorage
  * used for creating object's keys.
@@ -14,9 +17,9 @@ export function get_last_key_from_localstorage() {
  */
 
 export function create_user(user){
-    //console.log(user);
     localStorage.setItem(get_last_key_from_localstorage(), JSON.stringify(user)); 
 }
+
 
 /**
  * Function that returns the data from localStorage as
@@ -24,20 +27,22 @@ export function create_user(user){
  * @param {*} userData 
  */
 export function list_users(userData){
-    for (var key in localStorage){
+    let newDate = new Date()
+    let year = newDate.getFullYear();
+    for (let key in localStorage){
         let user_rec = JSON.parse(localStorage.getItem(key));
         if(user_rec !== null){
             let user = {
-                id: key,
-                username: user_rec['username'],
+                accountNumber: `${year}-00${key}`,
+                firstname: user_rec['firstname'],
+                lastname: user_rec['lastname'],
                 balance: user_rec['balance'],
-                accountType: user_rec['accountType'],
+                dateCreated: getCurrentDate(),
+                // accountType: user_rec['accountType'],
             }
             userData.push(user);
 
         }
-
-
     }
     
     return userData;
@@ -46,7 +51,7 @@ export function list_users(userData){
 
 export function search_username(username_to_search){
     let key_of_username = null;
-    for(var key in localStorage){
+    for(let key in localStorage){
         //read the content from localStorage
         let user_rec = JSON.parse(localStorage.getItem(key));
         if (user_rec !== null){
@@ -72,12 +77,17 @@ export function deposit(username_to_search, amount){
     let curr_amt = parseFloat(amount);
     let new_bal = curr_amt + curr_bal;
 
+    console.log(new_bal);
+
     let user_info = {
         accountType: accountType,
         username: username,
+        // refNumber: refNumber,
+        //date: date
         balance: new_bal.toString(),
     }
 
+   
     localStorage.setItem(search_key, JSON.stringify(user_info));
 
 }

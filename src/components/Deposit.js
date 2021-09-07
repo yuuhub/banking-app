@@ -1,5 +1,6 @@
 import { Component } from "react";
 import {deposit, search_username} from '../bank_functionalities/bank_functions';
+
 class Deposit extends Component {
     constructor(props) {
         super(props)
@@ -20,15 +21,14 @@ class Deposit extends Component {
     }
 
     handleSubmit = (event) => {
-        /*
-        let isDepositSuccess = deposit(this.state.username, this.state.amount);
-        if(isDepositSuccess){
-            console.log('Deposit successful!');
-        } else {
-            console.log('Username not found!');
-        }
-        */
-
+        
+       //let isDepositSuccess = deposit(this.state.username, this.state.amount);
+        // if(isDepositSuccess){
+        //     console.log('Deposit successful!');
+        // } else {
+        //     console.log('Username not found!');
+        // }
+        
         // look if the username exists
         let search_key = search_username(this.state.username);
         
@@ -40,9 +40,7 @@ class Deposit extends Component {
             alert("User does not exist!");
         }
 
-        console.log(search_key);
-        
-
+        //console.log(search_key);
         
         this.setState({
             amount: '',
@@ -57,7 +55,7 @@ class Deposit extends Component {
             <form className='depositContainer' onSubmit={this.handleSubmit}>
                 <h1>Deposit</h1>
                 <label>username</label> <input type='text' name='username' value={this.state.username} onChange={this.handleChange}/> <br />
-                <label>amount</label> <input type='number' name='amount' value={this.state.amount} onChange={this.handleChange}/> <br />
+                <label>amount</label> <input type='number' min='1' name='amount' value={this.state.amount} onChange={this.handleChange}/> <br />
                 <input type="submit" value="Submit" />
             </form>
         )
@@ -65,5 +63,3 @@ class Deposit extends Component {
 }
 
 export default Deposit
-
-//error handling - user exists/user does not exist
