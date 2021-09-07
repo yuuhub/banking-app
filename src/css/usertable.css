@@ -1,0 +1,26 @@
+.usertable-wrapper {
+  height: 60vh;
+  background-color: bisque;
+}
+
+.usertable-wrapper .usertable-container {
+  border-collapse: collapse;
+  height: auto;
+  min-width: 40vmin;
+  width: auto;
+  margin: 2rem;
+  border: 2px solid black;
+}
+
+.thead-container {
+  text-align: center;
+  font-size: 1rem;
+}
+
+.thead-container .tr-container {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+/*# sourceMappingURL=usertable.css.map */

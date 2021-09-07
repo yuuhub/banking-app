@@ -1,15 +1,7 @@
 *, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   
+    font-family: sans-serif;
 
-body {
-  font-family: 'Courier New', Courier, monospace;
-  line-height: 1.4;
-}
-
-a {
-  color: #333;
-  text-decoration: none;
-}
+} 

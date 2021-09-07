@@ -1,10 +1,12 @@
 import './App.css';
-import { Component, useState } from 'react';
+import { useState } from 'react';
 import React from 'react';
-import CreateUser from './components/CreateUser';
+// import CreateUser from './components/CreateUser';
 import Modal from './components/Modal';
 import Deposit from './components/Deposit';
 import DisplayUser from './components/DisplayUser'
+
+
 
 function App() {
 
@@ -12,10 +14,10 @@ function App() {
   return (
     <div className='App'>
       <DisplayUser />
-      <CreateUser />
+      {/* <CreateUser /> */}
       <Deposit />
-      <button className='openModalBtn' onClick={() => {setOpenModal(true)}}>Open</button>
-      {openModal && <Modal closeModal={setOpenModal}/>}
+      {/* <button className='openModalBtn' onClick={() => {setOpenModal(true)}}>Open</button> */}
+      {/* {openModal && <Modal closeModal={setOpenModal}/>} */}
     </div>
   )
 }
