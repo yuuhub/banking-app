@@ -26,6 +26,7 @@ const DisplayUser = () => {
     
     //deleting a user object using its ID
     const handleDeleteUser = (id) => {
+        //console.log(id)
         const newUserList = users.filter(user => user.id !== id)
         setUsers(newUserList)
     }

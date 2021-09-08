@@ -5,22 +5,25 @@
 
 .usertable-wrapper .usertable-container {
   border-collapse: collapse;
-  height: auto;
+  min-height: 15vmin;
   min-width: 40vmin;
-  width: 90vw;
   margin: 2rem;
   border: 2px solid black;
 }
 
 .thead-container {
-  text-align: center;
   font-size: 1rem;
+  padding: 2rem;
 }
 
 .thead-container .tr-container {
   background-color: #009879;
   color: #ffffff;
   text-align: left;
-  font-weight: bold;
+}
+
+td {
+  font-size: 1rem;
+  margin: 3rem;
 }
 /*# sourceMappingURL=usertable.css.map */

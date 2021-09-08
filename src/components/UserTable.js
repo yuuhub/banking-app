@@ -15,7 +15,7 @@ const UserTable = ({users, onAccountTypeChange, onDeleteUser}) => {
                 <thead className='thead-container'>
                     <tr className='tr-container'>
                         <th id='accountNumber'> Account No. </th>
-                        <th id='username'> Account Name </th>
+                        <th id='accountName'> Account Name </th>
                         <th id='balance'> Balance </th>
                         <th id='dateCreated'> Date Created </th>
 
@@ -25,12 +25,12 @@ const UserTable = ({users, onAccountTypeChange, onDeleteUser}) => {
                 <tbody>
                     {
                         users.map((user) =><tr key={user.id}>
-                            <td>{user.accountNumber}</td>
-                            <td>{user.firstname} {user.lastname}</td>
-                            <td>{user.balance}</td>
-                            <td>{user.dateCreated}</td>
+                            <td id='accountNumber-data'>{user.accountNumber}</td>
+                            <td id='name-data'>{user.firstname} {user.lastname}</td>
+                            <td id='balance-data'>{user.balance}</td>
+                            <td id='date-data'>{user.dateCreated}</td>
                             {/* <td>{user.accountType}</td> */}
-                            {/* <td><button onClick={() => onDeleteUser(user.id)}>delete</button></td> */}
+                            <td><button onClick={() => onDeleteUser(user.id)}>delete</button></td>
                         </tr>)
                     }
                 </tbody>
