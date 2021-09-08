@@ -8,7 +8,8 @@ const AddUserForm = ({users, setUsers, }) => {
     
     const handleChange = (e) => {
         const newUser = {...user};
-        newUser[e.target.name] = e.target.value;
+        //not displaying on tableusers when using toUpperCase()
+        newUser[e.target.name.toLowerCase()] = e.target.value.toLowerCase();
         setUser(newUser)
         //could be that number becomes a string when it is typed after a string value
         // if(isNaN(newUser[e.target.name] = e.target.value)) {
@@ -22,24 +23,16 @@ const AddUserForm = ({users, setUsers, }) => {
     //this function pushes the new created user to users list
     const handleAddAccount = (e) => {
         e.preventDefault();
-
-        create_user(user);
-        const newUserList = [...users];
-        newUserList.push(user);
-        setUsers(newUserList);
-
-        // const { accountNumber } = user;
-        // if (!users.some((user) => user.accountNumber === accountNumber)){
-        //   create_user(user);
-        //   const newUserList = [...users];
-        //   newUserList.push(user);
-        //   setUsers(newUserList);
-        // } else {
-        //   alert("user already exists");
-        // }
-
-        // if (users.some((user) => user.username !== user.username)) {
-
+        //should be case insensitive
+        const { firstname, lastname } = user;
+        if (!users.some((user) => user.firstname === firstname && user.lastname === lastname)){
+            create_user(user);
+            const newUserList = [...users];
+            newUserList.push(user);
+            setUsers(newUserList);
+        } else {
+            alert("user already exists");
+        }
     }
 
     return (
