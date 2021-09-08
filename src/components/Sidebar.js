@@ -7,7 +7,7 @@ import {faMoneyCheckAlt} from '@fortawesome/free-solid-svg-icons'
 import {faMoneyBillWave} from '@fortawesome/free-solid-svg-icons'
 import {faPaperPlane} from '@fortawesome/free-solid-svg-icons'
 
-export const sidebarData = [
+export const sidebarMenu = [
     {
         title: 'Dashboard',
         icon: <FontAwesomeIcon icon={faHome}></FontAwesomeIcon>,
@@ -38,16 +38,18 @@ export const sidebarData = [
 const Sidebar = () => {
     return (
         <div className='sidebar'>
+            <h2>BankU</h2>
             <ul className='sidebar-list'>
-                {sidebarData.map((val, index) => {
+                {sidebarMenu.map((menu, index) => {
                 return (
-                    <li key={index} className='sidebar-list-row' onClick={()=>{window.location.pathname = val.link}}>
-                        <div>{val.icon}</div>
-                        <div>{val.title}</div>
+                    <li key={index} className='sidebar-list-row' onClick={()=>{window.location.pathname = menu.link}}>
+                        <div id='icon'>{menu.icon} </div>
+                        <div id='title'>{menu.title}</div>
                     </li>
                 )
             })}
            </ul>
+           <button id='load-data-btn'>Load Data</button>
         </div>
     )
 }
