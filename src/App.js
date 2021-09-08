@@ -5,6 +5,7 @@ import React from 'react';
 import Modal from './components/Modal';
 import Deposit from './components/Deposit';
 import DisplayUser from './components/DisplayUser'
+import Sidebar from './components/Sidebar';
 
 
 
@@ -13,9 +14,11 @@ function App() {
   const [openModal, setOpenModal] = useState(false);
   return (
     <div className='App'>
-      <DisplayUser />
+      <Sidebar />
+      {/* <DisplayUser /> */}
+      {/* <Deposit /> */}
       {/* <CreateUser /> */}
-      <Deposit />
+     
       {/* <button className='openModalBtn' onClick={() => {setOpenModal(true)}}>Open</button> */}
       {/* {openModal && <Modal closeModal={setOpenModal}/>} */}
     </div>

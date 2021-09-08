@@ -1,0 +1,16 @@
+.sidebar-list {
+   width: 100%;
+   height: auto;
+   color: #4b3153;
+   display: flex;
+   flex-direction: column;
+//    background-color: salmon;
+//    padding: 18px 19px 280px 22px;
+   padding: 0;
+
+   .sidebar-list-row {
+       width: 100%;
+       height: 50px;
+       background-color: sandybrown;
+   }
+}

@@ -3,5 +3,16 @@
     padding: 0;
     box-sizing: border-box;   
     font-family: sans-serif;
-
 } 
+
+body {
+    background-color: aqua;
+}
+
+.sidebar {
+    width: 10rem;
+    height: 100vh;
+    /* margin: 0 24px 0 0; */
+    background-color: #fafafa;
+    display: flex;
+}
