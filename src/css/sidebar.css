@@ -44,7 +44,7 @@ h2 {
 
 #load-data-btn {
   padding: 0.4rem 0.2rem;
-  width: 80%;
+  width: 78%;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -52,5 +52,6 @@ h2 {
   border: none;
   background-color: #4b3153;
   color: #fafafa;
+  margin-top: 10%;
 }
 /*# sourceMappingURL=sidebar.css.map */
