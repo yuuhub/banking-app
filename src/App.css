@@ -7,9 +7,11 @@
 
 body {
     background-color:#ffffff;
+    position: relative;
 }
 
 .sidebar {
+    position: absolute;
     width: 10rem;
     height: 100vh;
     background-color: #fafafa;

@@ -1,5 +1,4 @@
 import { getCurrentDate } from "./utils";
-import { accountNoGenerator } from "./utils";
 
 /**
  * Function that obtains the last key used by the localStorage
@@ -42,10 +41,8 @@ export function list_users(userData){
                 // accountType: user_rec['accountType'],
             }
             userData.push(user);
-
         }
-    }
-    
+    }    
     return userData;
 }
 
@@ -65,7 +62,6 @@ export function search_name(name_to_search){
     }
 
     return key_of_name; //null or key of the username to look at
-
 }
 
 export function deposit(name_to_search, amount){
@@ -87,7 +83,6 @@ export function deposit(name_to_search, amount){
         //date: date
         balance: new_bal.toString(),
     }
-
    
     localStorage.setItem(search_key, JSON.stringify(user_info));
 

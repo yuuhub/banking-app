@@ -7,7 +7,8 @@ class Deposit extends Component {
 
         this.state = {
             amount: '',
-            name: ''
+            name: '',
+            transactionType: 'deposit'
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit= this.handleSubmit.bind(this)
@@ -44,20 +45,31 @@ class Deposit extends Component {
         
         this.setState({
             amount: '',
-            name: ''
+            name: '',
+            transactionType: 'deposit'
             
         })
         event.preventDefault()
     }
+
+    //displaying new list depending on account type
+   
+
     
     render() {
         return (
-            <form className='depositContainer' onSubmit={this.handleSubmit}>
+            <div>
                 <h1>Deposit</h1>
-                <label>name</label> <input type='text' name='name' value={this.state.name} onChange={this.handleChange}/> <br />
-                <label>amount</label> <input type='number' min='1' name='amount' value={this.state.amount} onChange={this.handleChange}/> <br />
-                <input type="submit" value="Submit" />
-            </form>
+                <form className='depositContainer' onSubmit={this.handleSubmit}>
+                <label htmlFor='transactionType'>transaction type</label>
+                <select name='transactionType' onChange={e=>this.handleChange(e)} id='transactionType' required>
+                    <option value='deposit'>deposit</option>
+                </select>
+                    <label>name</label> <input type='text' name='name' value={this.state.name} onChange={this.handleChange}/> <br />
+                    <label>amount</label> <input type='number' min='1' name='amount' value={this.state.amount} onChange={this.handleChange}/> <br />
+                    <input type="submit" value="Submit" />
+                </form>
+            </div>
         )
     }
 }

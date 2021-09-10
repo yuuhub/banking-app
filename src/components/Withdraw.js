@@ -1,5 +1,5 @@
 import React from 'react'
-import {withdraw, search_username} from '../bank_functionalities/bank_functions'
+import {withdraw, search_name} from '../bank_functionalities/bank_functions'
 
 const Withdraw = () => {
     handleSubmit = (e) => {

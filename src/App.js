@@ -4,24 +4,32 @@ import React from 'react';
 // import CreateUser from './components/CreateUser';
 import Modal from './components/Modal';
 import Deposit from './components/Deposit';
-import DisplayUser from './components/DisplayUser'
+import Accounts from './components/Accounts'
 import Sidebar from './components/Sidebar';
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
+
 
 
 
 function App() {
 
-  const [openModal, setOpenModal] = useState(false);
+  //const [openModal, setOpenModal] = useState(false);
   return (
-    <div className='App'>
-      {/* <Sidebar /> */}
-      <DisplayUser />
-      <Deposit />
-      {/* <CreateUser /> */}
-     
-      {/* <button className='openModalBtn' onClick={() => {setOpenModal(true)}}>Open</button> */}
-      {/* {openModal && <Modal closeModal={setOpenModal}/>} */}
-    </div>
+    <BrowserRouter>
+      <Sidebar />
+      <div className='App'>
+
+        <Route path='/Deposit' component={Deposit} />
+        <Route path='/Accounts' component={Accounts} />
+        {/* <Sidebar /> */}
+        {/* <Deposit />
+        <DisplayUser /> */}
+        {/* <CreateUser /> */}
+      
+        {/* <button className='openModalBtn' onClick={() => {setOpenModal(true)}}>Open</button> */}
+        {/* {openModal && <Modal closeModal={setOpenModal}/>} */}
+      </div>
+    </BrowserRouter>
   )
 }
 
