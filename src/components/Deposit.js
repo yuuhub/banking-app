@@ -1,5 +1,5 @@
 import { Component } from "react";
-import {deposit, search_username} from '../bank_functionalities/bank_functions';
+import {deposit, search_name} from '../bank_functionalities/bank_functions';
 
 class Deposit extends Component {
     constructor(props) {
@@ -7,7 +7,7 @@ class Deposit extends Component {
 
         this.state = {
             amount: '',
-            username: ''
+            name: ''
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit= this.handleSubmit.bind(this)
@@ -22,21 +22,21 @@ class Deposit extends Component {
 
     handleSubmit = (event) => {
         
-       //let isDepositSuccess = deposit(this.state.username, this.state.amount);
+       //let isDepositSuccess = deposit(this.state.name, this.state.amount);
         // if(isDepositSuccess){
         //     console.log('Deposit successful!');
         // } else {
-        //     console.log('Username not found!');
+        //     console.log('name not found!');
         // }
         
-        // look if the username exists
-        let search_key = search_username(this.state.username);
+        // look if the name exists
+        let search_key = search_name(this.state.name);
         
-        //if the username exists
+        //if the name exists
         if(search_key !== null){
-            deposit(this.state.username, this.state.amount);
+            deposit(this.state.name, this.state.amount);
         } else {
-            //error handling: username does not exist
+            //error handling: name does not exist
             alert("User does not exist!");
         }
 
@@ -44,7 +44,7 @@ class Deposit extends Component {
         
         this.setState({
             amount: '',
-            username: ''
+            name: ''
             
         })
         event.preventDefault()
@@ -54,7 +54,7 @@ class Deposit extends Component {
         return (
             <form className='depositContainer' onSubmit={this.handleSubmit}>
                 <h1>Deposit</h1>
-                <label>username</label> <input type='text' name='username' value={this.state.username} onChange={this.handleChange}/> <br />
+                <label>name</label> <input type='text' name='name' value={this.state.name} onChange={this.handleChange}/> <br />
                 <label>amount</label> <input type='number' min='1' name='amount' value={this.state.amount} onChange={this.handleChange}/> <br />
                 <input type="submit" value="Submit" />
             </form>

@@ -50,29 +50,29 @@ export function list_users(userData){
 }
 
 
-export function search_username(username_to_search){
-    let key_of_username = null;
+export function search_name(name_to_search){
+    let key_of_name = null;
     for(let key in localStorage){
         //read the content from localStorage
         let user_rec = JSON.parse(localStorage.getItem(key));
         if (user_rec !== null){
-            //check if username_to_search is the same 
-            if(username_to_search === user_rec['name']){
-                key_of_username = key;
+            //check if name_to_search is the same 
+            if(name_to_search === user_rec['name']){
+                key_of_name = key;
             }
         }
 
     }
 
-    return key_of_username; //null or key of the username to look at
+    return key_of_name; //null or key of the username to look at
 
 }
 
-export function deposit(username_to_search, amount){
-    let search_key = search_username(username_to_search);
+export function deposit(name_to_search, amount){
+    let search_key = search_name(name_to_search);
 
     // object destructuring
-    let {accountType, name, balance} = JSON.parse(localStorage.getItem(search_key));
+    let {transactionType, name, balance} = JSON.parse(localStorage.getItem(search_key));
     
     let curr_bal = parseFloat(balance);
     let curr_amt = parseFloat(amount);
@@ -81,8 +81,8 @@ export function deposit(username_to_search, amount){
     console.log(new_bal);
 
     let user_info = {
-        accountType: accountType,
         name: name,
+        transactionType: transactionType,
         // refNumber: refNumber,
         //date: date
         balance: new_bal.toString(),
@@ -93,11 +93,11 @@ export function deposit(username_to_search, amount){
 
 }
 
-export function balance(username_to_search){
-    let search_key = search_username(username_to_search);
+export function balance(name_to_search){
+    let search_key = search_name(name_to_search);
 
     // object destructuring
-    let {accountType, username, balance} = JSON.parse(localStorage.getItem(search_key));
+    let {accountType, name, balance} = JSON.parse(localStorage.getItem(search_key));
     
     let curr_bal = parseFloat(balance);
 
@@ -105,8 +105,8 @@ export function balance(username_to_search){
 }
 
 
-export function withdraw(username_to_search, amount){
-    let search_key = search_username(username_to_search);
+export function withdraw(name_to_search, amount){
+    let search_key = search_name(name_to_search);
 
     // object destructuring
     let {accountType, username, balance} = JSON.parse(localStorage.getItem(search_key));
