@@ -14,9 +14,9 @@ function App() {
   const [openModal, setOpenModal] = useState(false);
   return (
     <div className='App'>
-      <Sidebar />
-      {/* <DisplayUser /> */}
-      {/* <Deposit /> */}
+      {/* <Sidebar /> */}
+      <DisplayUser />
+      <Deposit />
       {/* <CreateUser /> */}
      
       {/* <button className='openModalBtn' onClick={() => {setOpenModal(true)}}>Open</button> */}

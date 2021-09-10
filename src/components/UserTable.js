@@ -26,7 +26,7 @@ const UserTable = ({users, onAccountTypeChange, onDeleteUser}) => {
                     {
                         users.map((user) =><tr key={user.id}>
                             <td id='accountNumber-data'>{user.accountNumber}</td>
-                            <td id='name-data'>{user.firstname} {user.lastname}</td>
+                            <td id='name-data'>{user.name}</td>
                             <td id='balance-data'>{user.balance}</td>
                             <td id='date-data'>{user.dateCreated}</td>
                             {/* <td>{user.accountType}</td> */}

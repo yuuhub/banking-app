@@ -24,8 +24,9 @@ const AddUserForm = ({users, setUsers, }) => {
     const handleAddAccount = (e) => {
         e.preventDefault();
         //should be case insensitive
-        const { firstname, lastname } = user;
-        if (!users.some((user) => user.firstname === firstname && user.lastname === lastname)){
+        //const { firstname, lastname } = user;
+        const { name } = user;
+        if (!users.some((user) => user.name === name)){
             create_user(user);
             const newUserList = [...users];
             newUserList.push(user);
@@ -45,10 +46,12 @@ const AddUserForm = ({users, setUsers, }) => {
                     <option value='active'>active</option>
                     <option value='inactive'>inactive</option>
                 </select> */}
-                <label htmlFor='firstname'>First Name</label>
+                <label htmlFor='name'>Name</label>
+                <input onChange={e=>handleChange(e)} type='text' name='name' id='name' required />
+                {/* <label htmlFor='firstname'>First Name</label>
                 <input onChange={e=>handleChange(e)} type='text' name='firstname' id='firstname' required />
                 <label htmlFor='lastname'>Last Name</label>
-                <input onChange={e=>handleChange(e)} type='text' name='lastname' id='lastname' required />
+                <input onChange={e=>handleChange(e)} type='text' name='lastname' id='lastname' required /> */}
                 <label htmlFor='balance'>Balance</label>
                 <input onChange={e=>handleChange(e)} type='number' name='balance' id='balance' required />
 
