@@ -1,10 +1,9 @@
-
 h2 {
-    // background-color: seagreen;
     padding: 1.2rem;
     font-size: 1.2rem;
     color: #4b3153;
 }
+
 .sidebar-list {
    width: 100%;
    height: auto;
@@ -35,10 +34,11 @@ h2 {
 
 #load-data-btn {
     padding: 0.4rem 0.2rem;
-    width: 80%;
+    width: 78%;
     align-self: center;
     border-radius: 0;
     border: none;
     background-color: #4b3153;
     color: #fafafa;
+    margin-top: 10%;
 }
