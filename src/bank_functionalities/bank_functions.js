@@ -33,9 +33,10 @@ export function list_users(userData){
         let user_rec = JSON.parse(localStorage.getItem(key));
         if(user_rec !== null){
             let user = {
-                accountNumber: `${year}-00${key}`,
-                firstname: user_rec['firstname'],
-                lastname: user_rec['lastname'],
+                accountNumber: `${year}00${key}`,
+                // firstname: user_rec['firstname'],
+                // lastname: user_rec['lastname'],
+                name: user_rec['name'],
                 balance: user_rec['balance'],
                 dateCreated: getCurrentDate(),
                 // accountType: user_rec['accountType'],
@@ -56,7 +57,7 @@ export function search_username(username_to_search){
         let user_rec = JSON.parse(localStorage.getItem(key));
         if (user_rec !== null){
             //check if username_to_search is the same 
-            if(username_to_search === user_rec['username']){
+            if(username_to_search === user_rec['name']){
                 key_of_username = key;
             }
         }
@@ -71,7 +72,7 @@ export function deposit(username_to_search, amount){
     let search_key = search_username(username_to_search);
 
     // object destructuring
-    let {accountType, username, balance} = JSON.parse(localStorage.getItem(search_key));
+    let {accountType, name, balance} = JSON.parse(localStorage.getItem(search_key));
     
     let curr_bal = parseFloat(balance);
     let curr_amt = parseFloat(amount);
@@ -81,7 +82,7 @@ export function deposit(username_to_search, amount){
 
     let user_info = {
         accountType: accountType,
-        username: username,
+        name: name,
         // refNumber: refNumber,
         //date: date
         balance: new_bal.toString(),
