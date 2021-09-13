@@ -21,7 +21,10 @@ const AddUserForm = ({users, setUsers }) => {
         const newUser = {...user};
         const newUser = {
             ...user, 
-            accountNo: (localStorage.length + 1)
+            accountNo: (localStorage.length + 1).toLocaleString('en-US', {
+                minimumIntegerDigits: 5,
+                useGrouping: false
+              })
         };
         newUser[e.target.name.toLowerCase()] = e.target.value.toLowerCase();
         setUser(newUser)
