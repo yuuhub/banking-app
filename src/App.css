@@ -3,11 +3,12 @@
     padding: 0;
     box-sizing: border-box;   
     font-family: sans-serif;
+    outline: 2px solid red;
 } 
 
 body {
     height: 100vh;
-    width: 100vw;
+    width: auto;
     /* position: relative;
     display: flex; */
 
@@ -20,10 +21,14 @@ body {
 
 }
 
+.app {
+    display: flex;
+}
+
 /* .grid-parent {
     display: grid;
-    grid-template-columns: 1fr 5fr;
-    grid-template-rows: 1fr 5r;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 10% 90% ;
     grid-template-areas: 
     'sidebar navbar',
     'sidebar main';
@@ -42,12 +47,14 @@ body {
 }
 
 .usertable-wrapper {
+    display: grid;
     grid-area: main;
-    background-color: bisque;
+    background-color: rgb(192, 121, 34);
     /* display: flex; */
     justify-content: center;
 }
 
 .adduser-wrapper {
     grid-area: navbar;
+    background-color: blue;
 }

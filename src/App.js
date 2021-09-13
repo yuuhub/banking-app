@@ -18,7 +18,7 @@ function App() {
     <BrowserRouter>
       <Sidebar />
 
-      <div className='App'>
+      <div className='app'>
         {/* <FreeDictionary /> */}
         <Route path='/Deposit' component={Deposit} />
         <Route path='/Accounts' component={Accounts} />
