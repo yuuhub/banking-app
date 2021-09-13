@@ -1,23 +1,14 @@
-import { getCurrentDate } from "./utils";
+import { get_current_date } from "./utils";
 
-/**
- * Function that obtains the last key used by the localStorage
- * used for creating object's keys.
- */
-export function get_last_key_from_localstorage() {
-    //console.log(localStorage._keys.length);
-    return localStorage.length + 1;
-}
+// /**
+//  * Function that handles the creation of users and passing it 
+//  * to the localStorage.
+//  * @param {javascript object from the submitted form data} user 
+//  */
 
-/**
- * Function that handles the creation of users and passing it 
- * to the localStorage.
- * @param {javascript object from the submitted form data} user 
- */
-
-export function create_user(user){
-    localStorage.setItem(get_last_key_from_localstorage(), JSON.stringify(user)); 
-}
+// export function create_user(user){
+//     localStorage.setItem(get_last_key_from_localstorage(), JSON.stringify(user)); 
+// }
 
 
 /**
@@ -35,7 +26,7 @@ export function list_users(userData){
                 accountNumber: `${year}00${key}`,
                 name: user_rec['name'],
                 balance: user_rec['balance'],
-                dateCreated: getCurrentDate(),
+                dateCreated: get_current_date(),
             }
             userData.push(user);
         }

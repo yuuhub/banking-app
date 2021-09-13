@@ -37,19 +37,21 @@ export const sidebarMenu = [
 
 const Sidebar = () => {
     return (
-        <div className='sidebar'>
-            <h2>BankU</h2>
-            <ul className='sidebar-list'>
-                {sidebarMenu.map((menu, index) => {
-                return (
-                    <li key={index} className='sidebar-list-row' onClick={()=>{window.location.pathname = menu.link}}>
-                        <div id='icon'>{menu.icon} </div>
-                        <div id='title'>{menu.title}</div>
-                    </li>
-                )
-            })}
-           </ul>
-           <button id='load-data-btn'>Load Data</button>
+        <div className= 'grid-parent'>
+            <div className='sidebar'>
+                <h2>BankU</h2>
+                <ul className='sidebar-list'>
+                    {sidebarMenu.map((menu, index) => {
+                    return (
+                        <li key={index} className='sidebar-list-row' onClick={()=>{window.location.pathname = menu.link}}>
+                            <div id='icon'>{menu.icon} </div>
+                            <div id='title'>{menu.title}</div>
+                        </li>
+                    )
+                })}
+            </ul>
+            <button id='load-data-btn'>Load Data</button>
+            </div>
         </div>
     )
 }

@@ -1,16 +1,11 @@
 
-.usertable-wrapper {
-    height: 60vh;
-    background-color: bisque;
+.usertable-container {
+    // border-collapse: collapse;
+    // min-height: 15vmin;
+    // min-width: 40vmin;
 
-    .usertable-container {
-        border-collapse: collapse;
-        min-height: 15vmin;
-        min-width: 40vmin;
-
-        margin: 2rem;
-        border: 2px solid black;     
-    }
+    margin: 2rem;
+    border: 2px solid black;     
 }
 
 .thead-container {

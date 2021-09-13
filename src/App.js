@@ -7,7 +7,7 @@ import Deposit from './components/Deposit';
 import Accounts from './components/Accounts'
 import Sidebar from './components/Sidebar';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
-import { FreeDictionary } from './FreeDictionary';
+//import { FreeDictionary } from './FreeDictionary';
 
 
 
@@ -34,29 +34,3 @@ function App() {
 }
 
 export default App
-
-// class App extends Component {
-//   constructor(props) {
-//     super(props)
-//     this.state = {openModal= false}
-//     this.handleChange = this.handleChange.bind(this);
-//   }
-  
-//   handleChange(event) {
-//     this.setState({
-//        openModal= true
-//     });
-//   }
-
-//   render() {
-//     return (
-//       <div className='App'>
-//         <CreateUser />
-//         <button className='openModalBtn' onClick={() => {setOpenModal(true)}}>Open</button>
-//         {openModal && <Modal closeModal={setOpenModal}/>}
-//       </div>
-//     )
-//   }
-// }
-
-// export default App

@@ -3,7 +3,7 @@
  * Function that returns the current date. 
  *
  */
-export function getCurrentDate() {
+export function get_current_date() {
     let newDate = new Date()
     let date = newDate.getDate();
     let month = newDate.getMonth() + 1;
@@ -12,18 +12,11 @@ export function getCurrentDate() {
     return `${month<10?`0${month}`:`${month}`}-${date<10?`0${date}`:`${date}`}-${year}`   
 }
 
-
 /**
- * Function that creates account number. 
- *
+ * Function that obtains the last key used by the localStorage
+ * used for creating object's keys.
  */
-// export function accountNoGenerator() {
-//     let newDate = new Date()
-//     let year = newDate.getFullYear();
-//     let counter = 0;
-//     for(let i = 0; i < localStorage.length; i++) {
-//         counter++;
-//     }
-//     return `${year}-00${counter}`  
-// }
-// export function list_users(userData){
+ export function get_last_key_from_localstorage() {
+    //console.log(localStorage._keys.length);
+    return localStorage.length + 1;
+}

@@ -1,26 +1,27 @@
 import React, { useEffect, useState } from 'react'
 
 const AddUserForm = ({users, setUsers }) => {
-    //this is the initial state of the user for creation
     const [user, setUser] = useState(null)
 
-    function get_last_key_from_localstorage() {
+    //used for creating object's keys.
+    const get_last_key_from_localstorage = () => {
         return localStorage.length + 1;
     }
-
+    //saving users to the local storage
     useEffect(() => {
         if(user !== null) {
             localStorage.setItem(get_last_key_from_localstorage(), JSON.stringify(user)); 
         }
     },[users])
     
+
     const handleChange = (e) => {
         const newUser = {...user};
         newUser[e.target.name.toLowerCase()] = e.target.value.toLowerCase();
         setUser(newUser)
     }
 
-    //this function pushes the new created user to users list
+    //pushes the new created user to users list
     const handleAddAccount = (e) => {
         e.preventDefault();
         const { name } = user;
@@ -35,7 +36,7 @@ const AddUserForm = ({users, setUsers }) => {
     }
 
     return (
-        <div>
+        <div className='adduser-wrapper'>
             <h1>Add account</h1>
             <form onSubmit={e=>handleAddAccount(e, user)}>
                 <label htmlFor='name'>Name</label>
@@ -46,6 +47,7 @@ const AddUserForm = ({users, setUsers }) => {
                 <button type='submit'>add account</button>
             </form>
         </div>
+
     )
 }
 

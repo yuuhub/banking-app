@@ -58,17 +58,19 @@ class Deposit extends Component {
     
     render() {
         return (
-            <div>
-                <h1>Deposit</h1>
-                <form className='depositContainer' onSubmit={this.handleSubmit}>
-                <label htmlFor='transactionType'>transaction type</label>
-                <select name='transactionType' onChange={e=>this.handleChange(e)} id='transactionType' required>
-                    <option value='deposit'>deposit</option>
-                </select>
-                    <label>name</label> <input type='text' name='name' value={this.state.name} onChange={this.handleChange}/> <br />
-                    <label>amount</label> <input type='number' min='1' name='amount' value={this.state.amount} onChange={this.handleChange}/> <br />
-                    <input type="submit" value="Submit" />
-                </form>
+            <div className='grid-parent'>
+                <div className='deposit-wrapper'>
+                    <h1>Deposit</h1>
+                    <form className='depositContainer' onSubmit={this.handleSubmit}>
+                    <label htmlFor='transactionType'>transaction type</label>
+                    <select name='transactionType' onChange={e=>this.handleChange(e)} id='transactionType' required>
+                        <option value='deposit'>deposit</option>
+                    </select>
+                        <label>name</label> <input type='text' name='name' value={this.state.name} onChange={this.handleChange}/> <br />
+                        <label>amount</label> <input type='number' min='1' name='amount' value={this.state.amount} onChange={this.handleChange}/> <br />
+                        <input type="submit" value="Submit" />
+                    </form>
+                </div>
             </div>
         )
     }
