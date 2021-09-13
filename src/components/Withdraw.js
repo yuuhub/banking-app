@@ -7,7 +7,15 @@ const Withdraw = () => {
     const [ transactionType ] = useState("withdrawal");
 
     const handleSubmit = (e) => {
-        console.log(accountNo, amount);
+        let search_key = search_name(accountNo);
+        console.log(search_key);
+
+        if(search_key !== null){
+            withdraw(accountNo, amount);
+        } else {
+            alert("User does not exist!");
+        }
+
         e.preventDefault();
     }
 

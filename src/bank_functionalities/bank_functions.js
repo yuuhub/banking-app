@@ -93,18 +93,20 @@ export function withdraw(name_to_search, amount){
     let search_key = search_name(name_to_search);
 
     // object destructuring
-    let {accountType, username, balance} = JSON.parse(localStorage.getItem(search_key));
-    
+    let {transactionType, name, balance} = JSON.parse(localStorage.getItem(search_key));
+
     let curr_bal = parseFloat(balance);
     let curr_amt = parseFloat(amount);
-    let new_bal = curr_amt - curr_bal;
+    let new_bal = curr_bal - curr_amt;
 
     let user_info = {
-        accountType: accountType,
-        username: username,
+        name: name,
+        transactionType: transactionType,
+        // refNumber: refNumber,
+        //date: date
         balance: new_bal.toString(),
     }
-
+   
     localStorage.setItem(search_key, JSON.stringify(user_info));
 
 }
