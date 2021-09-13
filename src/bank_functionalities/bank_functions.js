@@ -33,16 +33,14 @@ export function list_users(userData){
         if(user_rec !== null){
             let user = {
                 accountNumber: `${year}00${key}`,
-                // firstname: user_rec['firstname'],
-                // lastname: user_rec['lastname'],
                 name: user_rec['name'],
                 balance: user_rec['balance'],
                 dateCreated: getCurrentDate(),
-                // accountType: user_rec['accountType'],
             }
             userData.push(user);
         }
     }    
+    console.log(userData)
     return userData;
 }
 

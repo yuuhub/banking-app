@@ -7,18 +7,18 @@ import Deposit from './components/Deposit';
 import Accounts from './components/Accounts'
 import Sidebar from './components/Sidebar';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
-
+import { FreeDictionary } from './FreeDictionary';
 
 
 
 function App() {
-
   //const [openModal, setOpenModal] = useState(false);
   return (
     <BrowserRouter>
       <Sidebar />
-      <div className='App'>
 
+      <div className='App'>
+        {/* <FreeDictionary /> */}
         <Route path='/Deposit' component={Deposit} />
         <Route path='/Accounts' component={Accounts} />
         {/* <Sidebar /> */}
