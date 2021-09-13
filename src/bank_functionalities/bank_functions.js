@@ -38,16 +38,16 @@ export function list_users(userData){
 
 export function search_name(name_to_search){
     let key_of_name = null;
+
     for(let key in localStorage){
         //read the content from localStorage
         let user_rec = JSON.parse(localStorage.getItem(key));
-        if (user_rec !== null){
+        if (user_rec !== null) {
             //check if name_to_search is the same 
-            if(name_to_search === user_rec['name']){
+            if(name_to_search === user_rec['name'] && key.includes('user')) {
                 key_of_name = key;
             }
         }
-
     }
 
     return key_of_name; //null or key of the username to look at
@@ -55,8 +55,6 @@ export function search_name(name_to_search){
 
 export function deposit(name_to_search, amount){
     const search_key = search_name(name_to_search);
-
-    // object destructuring
     const { name, balance } = JSON.parse(localStorage.getItem(search_key));
     
     const curr_bal = parseFloat(balance);
@@ -122,11 +120,12 @@ export function withdraw(name_to_search, amount){
 }
 
 
-/*
-export function send(from_user, to_user, amount){
-    let successful = false;
-    let last_key = get_last_key_from_localstorage();
 
+export function send(sender, recipient, amount){
+    let { nameSender, balanceSender } = JSON.parse(localStorage.getItem(sender));
+    let { nameRecipient, balanceRecipient } = JSON.parse(localStorage.getItem(recipient));
+
+    balanceSender -= amount;
+    balanceRecipient += amount;
 
 }
-*/
