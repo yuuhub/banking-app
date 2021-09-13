@@ -18,10 +18,17 @@ const AddUserForm = ({users, setUsers }) => {
     
 
     const handleChange = (e) => {
-        const newUser = {...user};
+        const newUser = {
+            ...user, 
+            accountNo: (localStorage.length + 1)
+        };
         newUser[e.target.name.toLowerCase()] = e.target.value.toLowerCase();
+<<<<<<< HEAD
         // newUser = {...newUser, acccountNo}
         setUser(newUser)
+=======
+        setUser(newUser);
+>>>>>>> ff693e14ba024c358bcfd98cee8fdbc12f588a04
     }
 
     //pushes the new created user to users list
