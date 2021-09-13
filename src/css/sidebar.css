@@ -27,6 +27,7 @@ h2 {
   display: -ms-flexbox;
   display: flex;
   padding: 1rem;
+  cursor: pointer;
 }
 
 #icon {
