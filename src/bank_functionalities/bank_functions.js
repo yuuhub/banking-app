@@ -23,7 +23,7 @@ export function list_users(userData){
         let user_rec = JSON.parse(localStorage.getItem(key));
         if(user_rec !== null){
             let user = {
-                accountNumber: `${year}00${key}`,
+                accountNumber: `00${key}`,
                 name: user_rec['name'],
                 balance: user_rec['balance'],
                 dateCreated: get_current_date(),

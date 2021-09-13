@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 const AddUserForm = ({users, setUsers }) => {
     const [user, setUser] = useState(null)
 
+
     //used for creating object's keys.
     const get_last_key_from_localstorage = () => {
         return `user${localStorage.length + 1}`;
@@ -19,6 +20,7 @@ const AddUserForm = ({users, setUsers }) => {
     const handleChange = (e) => {
         const newUser = {...user};
         newUser[e.target.name.toLowerCase()] = e.target.value.toLowerCase();
+        // newUser = {...newUser, acccountNo}
         setUser(newUser)
     }
 
@@ -26,6 +28,7 @@ const AddUserForm = ({users, setUsers }) => {
     const handleAddAccount = (e) => {
         e.preventDefault();
         const { name } = user;
+
         if (!users.some((user) => user.name === name)){
             //create_user(user);
             const newUserList = [...users];
