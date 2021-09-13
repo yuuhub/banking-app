@@ -54,26 +54,30 @@ export function search_name(name_to_search){
 }
 
 export function deposit(name_to_search, amount){
-    let search_key = search_name(name_to_search);
+    const search_key = search_name(name_to_search);
 
     // object destructuring
-    let {transactionType, name, balance} = JSON.parse(localStorage.getItem(search_key));
+    const { name, balance } = JSON.parse(localStorage.getItem(search_key));
     
-    let curr_bal = parseFloat(balance);
-    let curr_amt = parseFloat(amount);
-    let new_bal = curr_amt + curr_bal;
+    const curr_bal = parseFloat(balance);
+    const curr_amt = parseFloat(amount);
+    const new_bal = curr_amt + curr_bal;
+    const transactionType = "deposit";
 
-    console.log(new_bal);
-
-    let user_info = {
+    const user_info = {
         name: name,
-        transactionType: transactionType,
-        // refNumber: refNumber,
-        //date: date
         balance: new_bal.toString(),
+    }
+
+    const history_info = {
+        name: name,
+        amount: curr_amt,
+        transactionType: transactionType,
+        date: get_current_date()
     }
    
     localStorage.setItem(search_key, JSON.stringify(user_info));
+    localStorage.setItem(`history${localStorage.length + 1}`, JSON.stringify(history_info));
 
 }
 
@@ -90,24 +94,30 @@ export function balance(name_to_search){
 
 
 export function withdraw(name_to_search, amount){
-    let search_key = search_name(name_to_search);
+    const search_key = search_name(name_to_search);
 
     // object destructuring
-    let {transactionType, name, balance} = JSON.parse(localStorage.getItem(search_key));
+    const { name, balance } = JSON.parse(localStorage.getItem(search_key));
+    
+    const curr_bal = parseFloat(balance);
+    const curr_amt = parseFloat(amount);
+    const new_bal = curr_bal + curr_amt;
+    const transactionType = "withrawal";
 
-    let curr_bal = parseFloat(balance);
-    let curr_amt = parseFloat(amount);
-    let new_bal = curr_bal - curr_amt;
-
-    let user_info = {
+    const user_info = {
         name: name,
-        transactionType: transactionType,
-        // refNumber: refNumber,
-        //date: date
         balance: new_bal.toString(),
+    }
+
+    const history_info = {
+        name: name,
+        amount: curr_amt,
+        transactionType: transactionType,
+        date: get_current_date()
     }
    
     localStorage.setItem(search_key, JSON.stringify(user_info));
+    localStorage.setItem(`history${localStorage.length + 1}`, JSON.stringify(history_info));
 
 }
 

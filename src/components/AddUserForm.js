@@ -5,8 +5,9 @@ const AddUserForm = ({users, setUsers }) => {
 
     //used for creating object's keys.
     const get_last_key_from_localstorage = () => {
-        return localStorage.length + 1;
+        return `user${localStorage.length + 1}`;
     }
+
     //saving users to the local storage
     useEffect(() => {
         if(user !== null) {

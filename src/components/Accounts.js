@@ -36,7 +36,6 @@ const Accounts = () => {
             <AddUserForm users={users} setUsers={setUsers}/>
             <UserTable users={users} onAccountTypeChange={handleAccountTypeChange} onDeleteUser={handleDeleteUser}/>
         </div>
-        
     )
 }
 
