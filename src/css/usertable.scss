@@ -1,26 +1,45 @@
+h1 {
+    font-size: 1rem;
+    margin: 1rem 2rem;
+    color: #4b3153;
+}
 
 .usertable-container {
-    // border-collapse: collapse;
-    // min-height: 15vmin;
-    // min-width: 40vmin;
-
-    margin: 2rem;
-    border: 2px solid black;     
+    border-collapse: collapse;
+    margin: 0 2rem;
 }
 
 .thead-container {
-    font-size: 1rem;
+    font-size: 0.8rem;
     padding: 2rem;
-    
-    .tr-container {
-        background-color: #009879;
-        color: #ffffff;
-        text-align: left;
-    }
+    border-bottom: 2px solid #4b3153;
+    color: #4b3153;
 }
 
-td {
-    font-size: 1rem;
-    margin: 3rem;
+tr:nth-of-type(even) {
+    background-color: #d8d8d8;
+}
 
+
+td {
+    font-size: 0.7rem;
+    margin: 3rem;
+    text-align: center;
+    color: #4b3153;
+    padding: 0.4rem 0;
+    border-bottom: 1.5px solid #4b3153;
+}
+
+
+#add-acct-btn {
+    padding: 0.4rem 0.2rem;
+    font-size: 0.8rem;
+    width: 6rem;
+    align-self: center;
+    border-radius: 0;
+    border: none;
+    background-color: #4b3153;
+    color: #fafafa;
+    margin: 2rem;
+    justify-self: flex-end;
 }

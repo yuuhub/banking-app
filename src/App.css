@@ -3,60 +3,36 @@
     padding: 0;
     box-sizing: border-box;   
     font-family: sans-serif;
-    outline: 2px solid red;
 } 
 
-body {
-    height: 100vh;
-    width: auto;
-    /* position: relative;
-    display: flex; */
-
-
-}
 
 .app {
+    height: 100vh;
+    width: auto;
     display: grid;
     grid-template-columns: 20% 80%;
     grid-template-rows: 10% 90% ;
     grid-template-areas: 
     'sidebar navbar',
-    'sidebar main';
+    'sidebar main'; 
     
 }
 
-/* .grid-parent {
-    display: grid;
-    grid-template-columns: 20% 80%;
-    grid-template-rows: 10% 90% ;
-    grid-template-areas: 
-    'sidebar navbar',
-    'sidebar main';
-
-} */
-
 .sidebar {
-    /* position: fixed; */
-    /* width: 10rem; */
-    height: 100vh;
-    width: 10rem;
-    background-color: #fafafa;
     display: flex;
-    flex-direction: column;
-    display: grid;
     grid-area: sidebar;
-   
-}
-
-.usertable-wrapper {
-    display: grid;
-    grid-area: main;
-    background-color: rgb(192, 121, 34);
-    /* display: flex; */
-    /* justify-content: center; */
+    height: 100vh;
+    width: 12rem;
+    background-color: #fafafa;
+    flex-direction: column;
 }
 
 .adduser-wrapper {
-    grid-area: navbar;
-    background-color: blue;
+    display: grid;
+    grid-area: main;
 }
+.usertable-wrapper {
+    display: grid;
+    grid-area: main;
+}
+

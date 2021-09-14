@@ -26,14 +26,13 @@ const Accounts = () => {
     
     //deleting a user object using its ID
     const handleDeleteUser = (id) => {
-        //console.log(id)
         const newUserList = users.filter(user => user.id !== id)
         setUsers(newUserList)
     }
 
     return (
         <div>
-            <AddUserForm users={users} setUsers={setUsers}/>
+            {/* <AddUserForm users={users} setUsers={setUsers}/> */}
             <UserTable users={users} onAccountTypeChange={handleAccountTypeChange} onDeleteUser={handleDeleteUser}/>
         </div>
     )
