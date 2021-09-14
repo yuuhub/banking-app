@@ -4,7 +4,6 @@ import {withdraw, search_name} from '../bank_functionalities/bank_functions'
 const Withdraw = () => {
     const [ accountNo, setAccountNo ] = useState("");
     const [ amount, setAmount ] = useState("");
-    const [ transactionType ] = useState("withdrawal");
 
     const handleSubmit = (e) => {
         let search_key = search_name(accountNo);

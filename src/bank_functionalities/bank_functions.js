@@ -21,7 +21,7 @@ export function list_users(userData){
     let year = newDate.getFullYear();
     for (let key in localStorage){
         let user_rec = JSON.parse(localStorage.getItem(key));
-        if(user_rec !== null){
+        if(user_rec !== null && key.includes('user')){
             let user = {
                 accountNumber: user_rec['accountNo'],
                 name: user_rec['name'],
@@ -31,7 +31,24 @@ export function list_users(userData){
             userData.push(user);
         }
     }    
-    console.log(userData)
+    return userData;
+}
+
+export function list_transactions(userData){
+    let newDate = new Date()
+    let year = newDate.getFullYear();
+    for (let key in localStorage){
+        let user_rec = JSON.parse(localStorage.getItem(key));
+        if(user_rec !== null && key.includes('user')){
+            let user = {
+                accountNumber: user_rec['accountNo'],
+                name: user_rec['name'],
+                balance: user_rec['balance'],
+                dateCreated: get_current_date(),
+            }
+            userData.push(user);
+        }
+    }   
     return userData;
 }
 
@@ -44,7 +61,7 @@ export function search_name(name_to_search){
         let user_rec = JSON.parse(localStorage.getItem(key));
         if (user_rec !== null) {
             //check if name_to_search is the same 
-            if(name_to_search === user_rec['name'] && key.includes('user')) {
+            if(name_to_search === user_rec['accountNo'] && key.includes('user')) {
                 key_of_name = key;
             }
         }
@@ -53,9 +70,9 @@ export function search_name(name_to_search){
     return key_of_name; //null or key of the username to look at
 }
 
-export function deposit(name_to_search, amount){
-    const search_key = search_name(name_to_search);
-    const { name, balance } = JSON.parse(localStorage.getItem(search_key));
+export function deposit(account_to_search, amount){
+    const search_key = search_name(account_to_search);
+    const { accountNo, name, balance } = JSON.parse(localStorage.getItem(search_key));
     
     const curr_bal = parseFloat(balance);
     const curr_amt = parseFloat(amount);
@@ -63,11 +80,13 @@ export function deposit(name_to_search, amount){
     const transactionType = "deposit";
 
     const user_info = {
+        accountNo: accountNo,
         name: name,
-        balance: new_bal.toString(),
+        balance: new_bal
     }
 
     const history_info = {
+        accountNo: accountNo,
         name: name,
         amount: curr_amt,
         transactionType: transactionType,
@@ -91,23 +110,25 @@ export function balance(name_to_search){
 }
 
 
-export function withdraw(name_to_search, amount){
-    const search_key = search_name(name_to_search);
+export function withdraw(account_to_search, amount){
+    const search_key = search_name(account_to_search);
 
     // object destructuring
-    const { name, balance } = JSON.parse(localStorage.getItem(search_key));
+    const { accountNo, name, balance } = JSON.parse(localStorage.getItem(search_key));
     
     const curr_bal = parseFloat(balance);
     const curr_amt = parseFloat(amount);
-    const new_bal = curr_bal + curr_amt;
+    const new_bal = curr_bal - curr_amt;
     const transactionType = "withrawal";
 
     const user_info = {
+        accountNo: accountNo,
         name: name,
-        balance: new_bal.toString(),
+        balance: new_bal,
     }
 
     const history_info = {
+        accountNo: accountNo,
         name: name,
         amount: curr_amt,
         transactionType: transactionType,
@@ -116,16 +137,29 @@ export function withdraw(name_to_search, amount){
    
     localStorage.setItem(search_key, JSON.stringify(user_info));
     localStorage.setItem(`history${localStorage.length + 1}`, JSON.stringify(history_info));
-
 }
 
 
 
 export function send(sender, recipient, amount){
-    let { nameSender, balanceSender } = JSON.parse(localStorage.getItem(sender));
-    let { nameRecipient, balanceRecipient } = JSON.parse(localStorage.getItem(recipient));
+    const senderRecord = JSON.parse(localStorage.getItem(sender));
+    const recipientRecord = JSON.parse(localStorage.getItem(recipient));
 
-    balanceSender -= amount;
-    balanceRecipient += amount;
+    const senderNewBalance = parseFloat(senderRecord['balance']) - parseFloat(amount);
+    const recipientNewBalance = parseFloat(recipientRecord['balance']) + parseFloat(amount);
 
+    console.log(recipientRecord['balance'], amount);
+    
+    const sender_info = {
+        ...senderRecord,
+        balance: senderNewBalance
+    }
+
+    const recipient_info = {
+        ...recipientRecord,
+        balance: recipientNewBalance
+    }
+
+    localStorage.setItem(sender, JSON.stringify(sender_info));
+    localStorage.setItem(recipient, JSON.stringify(recipient_info));
 }

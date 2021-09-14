@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {withdraw, search_name} from '../bank_functionalities/bank_functions';
+import { search_name, send } from '../bank_functionalities/bank_functions';
 
 
 const Send = () => {
@@ -7,12 +7,15 @@ const Send = () => {
     const [ recipient, setRecipient ] = useState("");
     const [ amount, setAmount ] = useState("");
 
-    const handleSend = () => {
+    const handleSend = (event) => {
+        event.preventDefault();
         const senderKey = search_name(sender);
         const recipientKey = search_name(recipient);
 
+        console.log(senderKey, recipientKey);
+
         if(senderKey && recipientKey) {
-            // send function here
+            send(senderKey, recipientKey, amount);
         }
         else {
             alert('One or both account numbers are invalid.');

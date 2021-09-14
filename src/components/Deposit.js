@@ -6,9 +6,8 @@ class Deposit extends Component {
         super(props)
 
         this.state = {
+            accountNo: '',
             amount: '',
-            name: '',
-            transactionType: 'deposit'
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit= this.handleSubmit.bind(this)
@@ -31,11 +30,11 @@ class Deposit extends Component {
         // }
         
         // look if the name exists
-        let search_key = search_name(this.state.name);
+        let search_key = search_name(this.state.accountNo);
         
         //if the name exists
         if(search_key !== null){
-            deposit(this.state.name, this.state.amount);
+            deposit(this.state.accountNo, this.state.amount);
         } else {
             //error handling: name does not exist
             alert("User does not exist!");
@@ -45,7 +44,7 @@ class Deposit extends Component {
         
         this.setState({
             amount: '',
-            name: '',
+            accountNo: '',
             transactionType: 'deposit'
             
         })
@@ -62,11 +61,7 @@ class Deposit extends Component {
                 <div className='deposit-wrapper'>
                     <h1>Deposit</h1>
                     <form className='depositContainer' onSubmit={this.handleSubmit}>
-                    <label htmlFor='transactionType'>transaction type</label>
-                    <select name='transactionType' onChange={e=>this.handleChange(e)} id='transactionType' required>
-                        <option value='deposit'>deposit</option>
-                    </select>
-                        <label>name</label> <input type='text' name='name' value={this.state.name} onChange={this.handleChange}/> <br />
+                        <label>Account No.</label> <input type='text' name='accountNo' value={this.state.name} onChange={this.handleChange}/> <br />
                         <label>amount</label> <input type='number' min='1' name='amount' value={this.state.amount} onChange={this.handleChange}/> <br />
                         <input type="submit" value="Submit" />
                     </form>
