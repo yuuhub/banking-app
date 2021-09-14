@@ -86,6 +86,7 @@ export function deposit(account_to_search, amount){
     }
 
     const history_info = {
+        refNo: Math.floor(100000 + Math.random() * 900000),
         accountNo: accountNo,
         name: name,
         amount: curr_amt,
@@ -128,6 +129,7 @@ export function withdraw(account_to_search, amount){
     }
 
     const history_info = {
+        refNo: Math.floor(100000 + Math.random() * 900000),
         accountNo: accountNo,
         name: name,
         amount: curr_amt,
@@ -148,7 +150,7 @@ export function send(sender, recipient, amount){
     const senderNewBalance = parseFloat(senderRecord['balance']) - parseFloat(amount);
     const recipientNewBalance = parseFloat(recipientRecord['balance']) + parseFloat(amount);
 
-    console.log(recipientRecord['balance'], amount);
+    const transactionType = 'Transfer';
     
     const sender_info = {
         ...senderRecord,
@@ -160,6 +162,15 @@ export function send(sender, recipient, amount){
         balance: recipientNewBalance
     }
 
+    const transaction_info = {
+        refNo: Math.floor(100000 + Math.random() * 900000),
+        name: senderRecord['name'],
+        amount: amount,
+        date: get_current_date(),
+        transactionType: transactionType
+    }
+
     localStorage.setItem(sender, JSON.stringify(sender_info));
     localStorage.setItem(recipient, JSON.stringify(recipient_info));
+    localStorage.setItem(`history${localStorage.length + 1}`, JSON.stringify(transaction_info));
 }

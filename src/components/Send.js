@@ -9,6 +9,7 @@ const Send = () => {
 
     const handleSend = (event) => {
         event.preventDefault();
+        
         const senderKey = search_name(sender);
         const recipientKey = search_name(recipient);
 
@@ -18,7 +19,7 @@ const Send = () => {
             send(senderKey, recipientKey, amount);
         }
         else {
-            alert('One or both account numbers are invalid.');
+            alert('One or both account numbers does not exist');
         }
     }
 
