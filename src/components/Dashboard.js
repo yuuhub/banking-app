@@ -1,12 +1,19 @@
 import React from 'react'
-import { list_transactions } from '../bank_functionalities/bank_functions'
+import { calculateAccounts, calculateDeposits, calculateWithdrawals, list_transactions } from '../bank_functionalities/bank_functions'
 import '../css/usertable.css'
 
 const Dashboard = () => {
     const transactions = list_transactions();
+    const numberOfAccounts = calculateAccounts();
+    const totalDeposits = calculateDeposits();
+    const totalWithdrawals = calculateWithdrawals();
 
     return (
         <div>
+            <h2>Total Accounts {numberOfAccounts}</h2>
+            <h2>Total Deposits {totalDeposits}</h2>
+            <h2>Total Withdrawals {totalWithdrawals}</h2>
+            
             <h1>Recent Transactions</h1>
             <div className='usertable-wrapper'>
                 <table className='usertable-container'>
