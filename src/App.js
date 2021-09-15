@@ -5,6 +5,7 @@ import Deposit from './components/Deposit';
 import Accounts from './components/Accounts';
 import Withdraw from './components/Withdraw';
 import Send from './components/Send';
+import Dashboard from './components/Dashboard';
 import Sidebar from './components/Sidebar';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 import Navbar from './components/Navbar';
@@ -18,6 +19,7 @@ function App() {
       <div className='app'>
         
         <Sidebar />
+        <Route path='/Dashboard' component={Dashboard} />
         <Route path='/Deposit' component={Deposit} />
         <Route path='/Accounts' component={Accounts} />
         <Route path='/Withdraw' component={Withdraw} />
