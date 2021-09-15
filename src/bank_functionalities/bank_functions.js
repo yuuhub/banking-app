@@ -54,6 +54,43 @@ export function list_transactions(){
     return transactionData;
 }
 
+export function calculateAccounts () {
+    let numberOfAccounts = 0;
+
+    for (let key in localStorage) {
+        if(key.includes('user')) {
+            numberOfAccounts++;
+        }
+    }
+
+    return numberOfAccounts;
+}
+
+export function calculateDeposits () {
+    let totalDeposits = 0;
+
+    for (let key in localStorage) {
+        let transaction_rec = JSON.parse(localStorage.getItem(key));
+        if (key.includes('history') && transaction_rec['transactionType'] === 'deposit') {
+            totalDeposits += transaction_rec['amount'];
+        }
+    }
+
+    return totalDeposits;
+}
+
+export function calculateWithdrawals () {
+    let totalWithdrawal = 0;
+
+    for (let key in localStorage) {
+        let transaction_rec = JSON.parse(localStorage.getItem(key));
+        if (key.includes('history') && transaction_rec['transactionType'] === 'withdrawal') {
+            totalWithdrawal += transaction_rec['amount'];
+        }
+    }
+    
+    return totalWithdrawal;
+}
 
 export function search_name(name_to_search){
     let key_of_name = null;
@@ -122,7 +159,7 @@ export function withdraw(account_to_search, amount){
     const curr_bal = parseFloat(balance);
     const curr_amt = parseFloat(amount);
     const new_bal = curr_bal - curr_amt;
-    const transactionType = "withrawal";
+    const transactionType = "withdrawal";
 
     const user_info = {
         accountNo: accountNo,
@@ -152,7 +189,7 @@ export function send(sender, recipient, amount){
     const senderNewBalance = parseFloat(senderRecord['balance']) - parseFloat(amount);
     const recipientNewBalance = parseFloat(recipientRecord['balance']) + parseFloat(amount);
 
-    const transactionType = 'Transfer';
+    const transactionType = 'transfer';
     
     const sender_info = {
         ...senderRecord,
