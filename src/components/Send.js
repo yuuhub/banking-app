@@ -25,6 +25,7 @@ const Send = () => {
 
     return (
         <div>
+            <h1 className='title'>Send</h1>
             <form onSubmit={handleSend}>
                 <label>Sender</label>
                 <input type="text" onChange={e => setSender(e.target.value)} />

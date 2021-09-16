@@ -1,8 +1,8 @@
-import React from 'react'
 import '../css/usertable.css'
+import { useState } from 'react'
+import AddUserForm from './AddUserForm'
 
-
-const UserTable = ({users, onAccountTypeChange, onDeleteUser}) => {
+const UserTable = ({users, setUsers, onAccountTypeChange, onDeleteUser}) => {
     
     return (
         <div className='grid-parent'>
@@ -12,8 +12,7 @@ const UserTable = ({users, onAccountTypeChange, onDeleteUser}) => {
                     <option value='active'>active</option>
                     <option value='inactive'>inactive</option>
                 </select> */}
-                <h1>Accounts</h1>
-                <button id='add-acct-btn'>add account</button>
+                
                 <table className='usertable-container'>
                     <thead className='thead-container'>
                         <tr className='tr-container'>

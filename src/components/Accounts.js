@@ -2,8 +2,10 @@ import { useState } from "react";
 import UserTable from "./UserTable";
 import { list_users } from "../bank_functionalities/bank_functions";
 import AddUserForm from "./AddUserForm";
+import '../css/addAcctModal.css';
 
 const Accounts = () => {
+    const [openModal, setOpenModal] = useState(false);
     //this function holds users list and returns users 
     const getUsers = (accountType) => {
         let userData = [];
@@ -31,8 +33,10 @@ const Accounts = () => {
     }
 
     return (
-        <div>
-            {<AddUserForm users={users} setUsers={setUsers}/>}
+        <div className='acct-wrapper'>
+            <h1 className='title'>Accounts</h1>
+            <button id='add-acct-btn' onClick={() => {setOpenModal(true)}}>add account</button>
+            {openModal && <AddUserForm users={users} setUsers={setUsers} closeModal={setOpenModal}/>}
             <UserTable users={users} onAccountTypeChange={handleAccountTypeChange} onDeleteUser={handleDeleteUser}/>
         </div>
     )

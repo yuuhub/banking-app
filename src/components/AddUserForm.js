@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import '../css/addAcctModal.css';
 
-const AddUserForm = ({users, setUsers }) => {
+const AddUserForm = ({users, setUsers, closeModal }) => {
     const [user, setUser] = useState(null)
 
     //used for creating object's keys.
@@ -44,16 +45,18 @@ const AddUserForm = ({users, setUsers }) => {
     }
 
     return (
-        <div className='adduser-wrapper'>
-            <h1>Add account</h1>
-            <form onSubmit={e=>handleAddAccount(e, user)}>
-                <label htmlFor='name'>Name</label>
-                <input onChange={e=>handleChange(e)} type='text' name='name' id='name' required />
-                <label htmlFor='balance'>Balance</label>
-                <input onChange={e=>handleChange(e)} type='number' name='balance' id='balance' required />
+        <div className='modal-background'>
+            <div id='modal-wrapper'>
+                <button onClick={() => closeModal(false)}>X</button>
+                <form onSubmit={e=>handleAddAccount(e, user)}>
+                    <label htmlFor='name'>Name</label>
+                    <input onChange={e=>handleChange(e)} type='text' name='name' id='name' required />
+                    <label htmlFor='balance'>Balance</label>
+                    <input onChange={e=>handleChange(e)} type='number' name='balance' id='balance' required />
 
-                <button type='submit'>add account</button>
-            </form>
+                    <button type='submit'>add account</button>
+                </form>
+            </div>
         </div>
 
     )

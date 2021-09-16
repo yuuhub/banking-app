@@ -5,9 +5,6 @@ function Modal({ closeModal }) {
         <div className='modalBackground'>
             <div className='modalContainer'>
                 <button onClick={() => closeModal(false)}>X</button>
-                <div className='title'>
-                    <h1>modal</h1>
-                </div>
                 <div className='body'>
                     <p>modal test</p>
                 </div>
@@ -17,7 +14,6 @@ function Modal({ closeModal }) {
                 </div>
             </div>
         </div>
-    )
-}
+    )}
 
 export default Modal

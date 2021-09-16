@@ -1,0 +1,51 @@
+.modal-background {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  -webkit-transform: translate(-20%, -30%);
+          transform: translate(-20%, -30%);
+  z-index: 1;
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#modal-wrapper {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 12px;
+  background-color: white;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 25px;
+}
+
+#add-acct-btn {
+  padding: 0.4rem 0.2rem;
+  font-size: 0.8rem;
+  width: 6rem;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  border-radius: 0;
+  border: none;
+  background-color: #4b3153;
+  color: #fafafa;
+  margin: 2rem;
+  margin-left: 85%;
+}
+/*# sourceMappingURL=addAcctModal.css.map */
