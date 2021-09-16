@@ -62,6 +62,13 @@
   width: 90%;
   background-color: #4b3153;
   margin-left: 33px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .welcome-container h1, .welcome-container p {
@@ -76,5 +83,13 @@
 .welcome-container p {
   margin-left: 30px;
   font-size: 1.0625rem;
+}
+
+.welcome-container img {
+  width: 150px;
+  height: 84px;
+  position: relative;
+  left: 40px;
+  top: 15px;
 }
 /*# sourceMappingURL=dashboard.css.map */

@@ -7,6 +7,7 @@ import { faMoneyBillWave } from '@fortawesome/free-solid-svg-icons'
 import '../css/usertable.css'
 import '../css/dashboard.css'
 import { numberWithCommas } from '../bank_functionalities/utils'
+import img from '../components/img/4565.png'
 
 const Dashboard = () => {
     const transactions = list_transactions();
@@ -17,9 +18,13 @@ const Dashboard = () => {
     return (
         <div>
             <div className='welcome-container'>
-                <h1>Welcome to the Dashboard</h1>
-                <p>Here you can see some useful statistics about your accounts and recent transactions.</p>
+                <div className='title-container'>
+                    <h1>Welcome to the Dashboard</h1>
+                    <p>Here you can see some useful statistics about your accounts and recent transactions.</p>
+                </div>
+                <img src={img} alt='illustration' />
             </div>
+
             <h1>History</h1>
             <div class='stats-container'>
                 <div className='stats-card'>

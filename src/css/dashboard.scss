@@ -47,6 +47,8 @@
     width: 90%;
     background-color: #4b3153;
     margin-left: 33px;
+    display: flex;
+    flex-direction: row;
 
     h1, p {
         color: white;
@@ -60,5 +62,13 @@
     p {
         margin-left: 30px;
         font-size: 1.0625rem;
+    }
+
+    img {
+        width: 150px;
+        height: 84px;
+        position: relative; 
+        left: 40px;
+        top: 15px;
     }
 }
