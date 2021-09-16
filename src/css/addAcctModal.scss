@@ -16,24 +16,16 @@
     border-radius: 12px;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    display: flex;
-    flex-direction: column;
     padding: 25px;
+
+    #add-acct-form {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 }
 
-
-
-#add-acct-btn {
-    padding: 0.4rem 0.2rem;
-    font-size: 0.8rem;
-    width: 6rem;
-    align-self: center;
-    border-radius: 0;
-    border: none;
-    background-color: #4b3153;
-    color: #fafafa;
-    margin: 2rem;
-    margin-left: 85%;
-}
 
 
