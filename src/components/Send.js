@@ -19,7 +19,7 @@ const Send = () => {
             send(senderKey, recipientKey, amount);
         }
         else {
-            alert('One or both account numbers does not exist');
+            alert('One or both account numbers do not exist');
         }
     }
 

@@ -8,11 +8,6 @@ import Send from './components/Send';
 import Dashboard from './components/Dashboard';
 import Sidebar from './components/Sidebar';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
-import Navbar from './components/Navbar';
-import { useState } from 'react'
-import AddUserForm from './components/AddUserForm';
-
-
 
 function App() {
   // const [openModal, setOpenModal] = useState(false);
