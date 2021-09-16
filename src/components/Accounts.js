@@ -36,7 +36,7 @@ const Accounts = () => {
         <div className='acct-wrapper'>
             <h1 className='title'>Accounts</h1>
             <button id='add-acct-btn' onClick={() => {setOpenModal(true)}}>add account</button>
-            {openModal && <AddUserForm users={users} setUsers={setUsers} setOpenModal={setOpenModal}/>}
+            {openModal && <AddUserForm users={users} setUsers={setUsers} openModal={openModal} setOpenModal={setOpenModal}/>}
             <UserTable users={users} onAccountTypeChange={handleAccountTypeChange} onDeleteUser={handleDeleteUser}/>
         </div>
     )

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import '../css/addAcctModal.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faTimes} from '@fortawesome/free-solid-svg-icons'
 
-const AddUserForm = ({users, setUsers, setOpenModal }) => {
+const AddUserForm = ({users, setUsers, openModal, setOpenModal }) => {
     const [user, setUser] = useState(null)
 
     //used for creating object's keys.
@@ -48,13 +50,19 @@ const AddUserForm = ({users, setUsers, setOpenModal }) => {
         <div className='modal-background'>
             <div id='modal-wrapper'>
                 <form id='add-acct-form' onSubmit={e=>handleAddAccount(e, user)}>
-                    <button onClick={() => setOpenModal(false)}>X</button>
-                    <label htmlFor='name'>Name</label>
-                    <input onChange={e=>handleChange(e)} type='text' name='name' id='name' required />
-                    <label htmlFor='balance'>Balance</label>
-                    <input onChange={e=>handleChange(e)} type='number' name='balance' id='balance' required />
-                    <button onClick={() => setOpenModal(false)}>Cancel</button>
-                    <button type='submit'>Add Account</button>
+                    <button id='x-btn'onClick={() => setOpenModal(false)}><FontAwesomeIcon icon={faTimes}></FontAwesomeIcon></button>
+                    <div id='name-container'>
+                        <label htmlFor='name'>Name</label>
+                        <input onChange={e=>handleChange(e)} type='text' name='name' id='name' required />
+                    </div>
+                    <div id='balance-container'>
+                        <label htmlFor='balance'>Balance</label>
+                        <input onChange={e=>handleChange(e)} type='number' name='balance' id='balance' required />
+                    </div>
+                    <div id='buttons'>
+                        <button id='cancel-btn' onClick={() => setOpenModal(false)}>Cancel</button>
+                        <button id='add-acct-submit-btn'type='submit'>Add Account</button>
+                    </div>
                 </form>
             </div>
         </div>
