@@ -34,24 +34,63 @@ export function list_users(userData){
     return userData;
 }
 
-export function list_transactions(userData){
-    let newDate = new Date()
-    let year = newDate.getFullYear();
+export function list_transactions(){
+    const transactionData = [];
+
     for (let key in localStorage){
-        let user_rec = JSON.parse(localStorage.getItem(key));
-        if(user_rec !== null && key.includes('user')){
+        let transaction_rec = JSON.parse(localStorage.getItem(key));
+        if(transaction_rec !== null && key.includes('history')){
             let user = {
-                accountNumber: user_rec['accountNo'],
-                name: user_rec['name'],
-                balance: user_rec['balance'],
-                dateCreated: get_current_date(),
+                accountNo: transaction_rec['accountNo'],
+                name: transaction_rec['name'],
+                amount: transaction_rec['amount'],
+                date: transaction_rec['date'],
+                refNo: transaction_rec['refNo'],
+                transactionType: transaction_rec['transactionType']
             }
-            userData.push(user);
+            transactionData.push(user);
         }
     }   
-    return userData;
+    return transactionData;
 }
 
+export function calculateAccounts () {
+    let numberOfAccounts = 0;
+
+    for (let key in localStorage) {
+        if(key.includes('user')) {
+            numberOfAccounts++;
+        }
+    }
+
+    return numberOfAccounts;
+}
+
+export function calculateDeposits () {
+    let totalDeposits = 0;
+
+    for (let key in localStorage) {
+        let transaction_rec = JSON.parse(localStorage.getItem(key));
+        if (key.includes('history') && transaction_rec['transactionType'] === 'deposit') {
+            totalDeposits += transaction_rec['amount'];
+        }
+    }
+
+    return totalDeposits;
+}
+
+export function calculateWithdrawals () {
+    let totalWithdrawal = 0;
+
+    for (let key in localStorage) {
+        let transaction_rec = JSON.parse(localStorage.getItem(key));
+        if (key.includes('history') && transaction_rec['transactionType'] === 'withdrawal') {
+            totalWithdrawal += transaction_rec['amount'];
+        }
+    }
+    
+    return totalWithdrawal;
+}
 
 export function search_name(name_to_search){
     let key_of_name = null;
@@ -120,7 +159,7 @@ export function withdraw(account_to_search, amount){
     const curr_bal = parseFloat(balance);
     const curr_amt = parseFloat(amount);
     const new_bal = curr_bal - curr_amt;
-    const transactionType = "withrawal";
+    const transactionType = "withdrawal";
 
     const user_info = {
         accountNo: accountNo,
@@ -150,7 +189,7 @@ export function send(sender, recipient, amount){
     const senderNewBalance = parseFloat(senderRecord['balance']) - parseFloat(amount);
     const recipientNewBalance = parseFloat(recipientRecord['balance']) + parseFloat(amount);
 
-    const transactionType = 'Transfer';
+    const transactionType = 'transfer';
     
     const sender_info = {
         ...senderRecord,
@@ -164,6 +203,7 @@ export function send(sender, recipient, amount){
 
     const transaction_info = {
         refNo: Math.floor(100000 + Math.random() * 900000),
+        accountNo: senderRecord['accountNo'],
         name: senderRecord['name'],
         amount: amount,
         date: get_current_date(),
