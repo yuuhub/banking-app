@@ -15,22 +15,32 @@ const Dashboard = () => {
 
     return (
         <div>
+            <div className='welcome-container'>
+                <h1>Welcome to the Dashboard</h1>
+                <p>Here you can see some useful statistics about your accounts and recent transactions.</p>
+            </div>
             <h1>History</h1>
             <div class='stats-container'>
-                <div className='stats'>Total Accounts
-                    <FontAwesomeIcon icon={faUsers}></FontAwesomeIcon>
-                    <br /> 
-                    {numberOfAccounts}
+                <div className='stats-card'>
+                    <div className='title'>
+                        <span>Total Accounts</span>
+                        <FontAwesomeIcon icon={faUsers}></FontAwesomeIcon>
+                    </div>
+                    <span className='stat'>{numberOfAccounts}</span>
                 </div>
-                <div className='stats'>Total Deposits 
-                    <FontAwesomeIcon icon={faMoneyCheckAlt}></FontAwesomeIcon>
-                    <br /> 
-                    {totalDeposits}
+                <div className='stats-card'>
+                    <div className='title'>
+                        <span>Total Deposits</span> 
+                        <FontAwesomeIcon icon={faMoneyCheckAlt}></FontAwesomeIcon>
+                    </div>
+                    <span className='stat'>&#8369;{totalDeposits}</span>
                 </div>
-                <div className='stats'>Total Withdrawals 
-                    <FontAwesomeIcon icon={faMoneyBillWave}></FontAwesomeIcon>
-                    <br /> 
-                    {totalWithdrawals}
+                <div className='stats-card'>
+                    <div className='title'>
+                        <span>Total Withdrawals</span>
+                        <FontAwesomeIcon icon={faMoneyBillWave}></FontAwesomeIcon>
+                    </div>
+                    <span className='stat'>&#8369;{totalWithdrawals}</span>
                 </div>
             </div>
 

@@ -161,23 +161,28 @@ export function withdraw(account_to_search, amount){
     const new_bal = curr_bal - curr_amt;
     const transactionType = "withdrawal";
 
-    const user_info = {
-        accountNo: accountNo,
-        name: name,
-        balance: new_bal,
+    if(curr_amt > curr_bal) {
+        alert ('Insufficient balance');
     }
+    else {
+        const user_info = {
+            accountNo: accountNo,
+            name: name,
+            balance: new_bal,
+        }
 
-    const history_info = {
-        refNo: Math.floor(100000 + Math.random() * 900000),
-        accountNo: accountNo,
-        name: name,
-        amount: curr_amt,
-        transactionType: transactionType,
-        date: get_current_date()
+        const history_info = {
+            refNo: Math.floor(100000 + Math.random() * 900000),
+            accountNo: accountNo,
+            name: name,
+            amount: curr_amt,
+            transactionType: transactionType,
+            date: get_current_date()
+        }
+    
+        localStorage.setItem(search_key, JSON.stringify(user_info));
+        localStorage.setItem(`history${localStorage.length + 1}`, JSON.stringify(history_info));
     }
-   
-    localStorage.setItem(search_key, JSON.stringify(user_info));
-    localStorage.setItem(`history${localStorage.length + 1}`, JSON.stringify(history_info));
 }
 
 
