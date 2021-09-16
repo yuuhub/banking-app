@@ -27,12 +27,12 @@ const Send = () => {
         <div>
             <h1 className='title'>Send</h1>
             <form onSubmit={handleSend}>
-                <label>Sender</label>
-                <input type="text" onChange={e => setSender(e.target.value)} />
-                <label>Recipient</label>
-                <input type="text" onChange={e => setRecipient(e.target.value)} />
+                <label>Sender Account No.</label>
+                <input type="number" min="1" onChange={e => setSender(e.target.value)} />
+                <label>Recipient Account No.</label>
+                <input type="number" min="1" onChange={e => setRecipient(e.target.value)} />
                 <label>Amount</label>
-                <input type="number" onChange={e => setAmount(e.target.value)} />
+                <input type="number" min="1" onChange={e => setAmount(e.target.value)} />
                 <button>Send</button>
             </form>
         </div>

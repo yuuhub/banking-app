@@ -61,7 +61,7 @@ class Deposit extends Component {
                 <div className='deposit-wrapper'>
                     <h1>Deposit</h1>
                     <form className='depositContainer' onSubmit={this.handleSubmit}>
-                        <label>Account No.</label> <input type='text' name='accountNo' value={this.state.name} onChange={this.handleChange}/> <br />
+                        <label>Account No.</label> <input type='number' min="1" name='accountNo' value={this.state.name} onChange={this.handleChange}/> <br />
                         <label>amount</label> <input type='number' min='1' name='amount' value={this.state.amount} onChange={this.handleChange}/> <br />
                         <input type="submit" value="Submit" />
                     </form>

@@ -23,9 +23,9 @@ const Withdraw = () => {
             <h1>Withdraw</h1>
             <form onSubmit={handleSubmit}>
                 <label>Account No.</label>
-                <input type="text" onChange={e => setAccountNo(e.target.value)} />
+                <input type="number" min="1" onChange={e => setAccountNo(e.target.value)} />
                 <label>Amount</label>
-                <input type="number" onChange={e => setAmount(e.target.value)} />
+                <input type="number" min="1" onChange={e => setAmount(e.target.value)} />
                 <button>Submit</button>
             </form>
         </div>
