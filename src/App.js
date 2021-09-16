@@ -21,6 +21,7 @@ function App() {
       <div className='app'>
         <Sidebar />
         <Switch>
+          <Route path='/Dashboard' component={Dashboard} />
           <Route path='/Deposit' component={Deposit} />
           <Route path='/Accounts' component={Accounts} />
           <Route path='/Withdraw' component={Withdraw} />

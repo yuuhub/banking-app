@@ -1,0 +1,41 @@
+.stats-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  color: #4b3153;
+}
+
+.stats-container .stats::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+  background-image: url(../components/img/wavesOpacity.svg);
+}
+
+.stats-container .stats {
+  position: relative;
+  overflow: hidden;
+  height: 115px;
+  width: 240px;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-left: 33px;
+}
+/*# sourceMappingURL=dashboard.css.map */
