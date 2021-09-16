@@ -22,10 +22,8 @@ const Accounts = () => {
 
     const handleSearch = (e) => {
         const newSearchList = getUsers(e.target.value)
-        console.log(newSearchList)
         setSearch(newSearchList)
         setUsers(newSearchList)
-    
     }
 
     //initial state of users list
