@@ -12,9 +12,7 @@ const Accounts = () => {
     //this function holds users list and returns users 
     const getUsers = (search) => {
         let userData = [];
-        
         userData = list_users(userData);
-        
         if (search)
             return userData.filter(user => user.name === search)
         return userData;
