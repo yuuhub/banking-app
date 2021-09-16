@@ -6,6 +6,7 @@ import { faMoneyCheckAlt } from '@fortawesome/free-solid-svg-icons'
 import { faMoneyBillWave } from '@fortawesome/free-solid-svg-icons'
 import '../css/usertable.css'
 import '../css/dashboard.css'
+import { numberWithCommas } from '../bank_functionalities/utils'
 
 const Dashboard = () => {
     const transactions = list_transactions();
@@ -33,14 +34,14 @@ const Dashboard = () => {
                         <span>Total Deposits</span> 
                         <FontAwesomeIcon icon={faMoneyCheckAlt}></FontAwesomeIcon>
                     </div>
-                    <span className='stat'>&#8369;{totalDeposits}</span>
+                    <span className='stat'>&#8369;{numberWithCommas(totalDeposits)}</span>
                 </div>
                 <div className='stats-card'>
                     <div className='title'>
                         <span>Total Withdrawals</span>
                         <FontAwesomeIcon icon={faMoneyBillWave}></FontAwesomeIcon>
                     </div>
-                    <span className='stat'>&#8369;{totalWithdrawals}</span>
+                    <span className='stat'>&#8369;{numberWithCommas(totalWithdrawals)}</span>
                 </div>
             </div>
 
