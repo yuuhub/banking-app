@@ -11,20 +11,58 @@
 }
 
 #modal-wrapper {
-    width: 20rem;
-    height: 20rem;
-    border-radius: 12px;
+    width: 15rem;
+    height: 15rem;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    padding: 25px;
+    padding: 1rem;
 
     #add-acct-form {
         width: 100%;
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: space-evenly;
+        font-size: 0.8rem;
+
+        #name-container, #balance-container{
+            display: flex;
+            flex-direction: column;
+        }
+
+        #x-btn {
+            display: flex;
+            justify-content: center;
+            align-self: flex-end;
+            width: 1.5rem;
+            height: 1.5rem;
+            padding: 0.5rem;
+            border: none;
+            margin-top: -15%;
+            background-color: transparent;
+            font-size: large;
+            color: #4b3153;
+        }
     }
+
+    #buttons {
+        display: flex;
+        justify-content: space-around;
+    
+        #add-acct-submit-btn {
+            padding: 0.4rem 0.3rem;
+            border: none;
+            background-color: #4b3153;
+            color: #fafafa;
+        }
+
+        #cancel-btn {
+            padding: 0.4rem 0.3rem;
+            border: none;
+        }
+    }
+
+
 }
 
 
