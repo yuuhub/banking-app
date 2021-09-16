@@ -3,18 +3,29 @@ import UserTable from "./UserTable";
 import { list_users } from "../bank_functionalities/bank_functions";
 import AddUserForm from "./AddUserForm";
 import '../css/addAcctModal.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faSearch} from '@fortawesome/free-solid-svg-icons'
 
 const Accounts = () => {
     const [openModal, setOpenModal] = useState(false);
+    const [search, setSearch] = useState('');
     //this function holds users list and returns users 
-    const getUsers = (accountType) => {
+    const getUsers = (search) => {
         let userData = [];
         
         userData = list_users(userData);
         
-        if (accountType)
-            return userData.filter(user => user.accountType === accountType)
+        if (search)
+            return userData.filter(user => user.name === search)
         return userData;
+    }
+
+    const handleSearch = (e) => {
+        const newSearchList = getUsers(e.target.value)
+        console.log(newSearchList)
+        setSearch(newSearchList)
+        setUsers(newSearchList)
+    
     }
 
     //initial state of users list
@@ -35,7 +46,8 @@ const Accounts = () => {
     return (
         <div className='acct-wrapper'>
             <h1 className='title'>Accounts</h1>
-            <button id='add-acct-btn' onClick={() => {setOpenModal(true)}}>add account</button>
+            <input id='search-input' name='searchName' type='text' placeholder= 'search' onChange={handleSearch}/>
+            <button id='add-acct-btn' onClick={() => {setOpenModal(true)}}>Add Account</button>
             {openModal && <AddUserForm users={users} setUsers={setUsers} openModal={openModal} setOpenModal={setOpenModal}/>}
             <UserTable users={users} onAccountTypeChange={handleAccountTypeChange} onDeleteUser={handleDeleteUser}/>
         </div>
