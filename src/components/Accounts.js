@@ -12,9 +12,7 @@ const Accounts = () => {
     //this function holds users list and returns users 
     const getUsers = (search) => {
         let userData = [];
-        
         userData = list_users(userData);
-        
         if (search)
             return userData.filter(user => user.name === search)
         return userData;
@@ -22,10 +20,8 @@ const Accounts = () => {
 
     const handleSearch = (e) => {
         const newSearchList = getUsers(e.target.value)
-        console.log(newSearchList)
         setSearch(newSearchList)
         setUsers(newSearchList)
-    
     }
 
     //initial state of users list
