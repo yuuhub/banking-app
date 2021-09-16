@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import '../css/addAcctModal.css';
 
-const AddUserForm = ({users, setUsers, closeModal }) => {
+const AddUserForm = ({users, setUsers, setOpenModal }) => {
     const [user, setUser] = useState(null)
 
     //used for creating object's keys.
@@ -47,14 +47,14 @@ const AddUserForm = ({users, setUsers, closeModal }) => {
     return (
         <div className='modal-background'>
             <div id='modal-wrapper'>
-                <button onClick={() => closeModal(false)}>X</button>
-                <form onSubmit={e=>handleAddAccount(e, user)}>
+                <form id='add-acct-form' onSubmit={e=>handleAddAccount(e, user)}>
+                    <button onClick={() => setOpenModal(false)}>X</button>
                     <label htmlFor='name'>Name</label>
                     <input onChange={e=>handleChange(e)} type='text' name='name' id='name' required />
                     <label htmlFor='balance'>Balance</label>
                     <input onChange={e=>handleChange(e)} type='number' name='balance' id='balance' required />
-
-                    <button type='submit'>add account</button>
+                    <button onClick={() => setOpenModal(false)}>Cancel</button>
+                    <button type='submit'>Add Account</button>
                 </form>
             </div>
         </div>
