@@ -21,14 +21,6 @@ class Deposit extends Component {
     }
 
     handleSubmit = (event) => {
-        
-       //let isDepositSuccess = deposit(this.state.name, this.state.amount);
-        // if(isDepositSuccess){
-        //     console.log('Deposit successful!');
-        // } else {
-        //     console.log('name not found!');
-        // }
-        
         // look if the name exists
         let search_key = search_name(this.state.accountNo);
         
@@ -39,8 +31,6 @@ class Deposit extends Component {
             //error handling: name does not exist
             alert("User does not exist!");
         }
-
-        //console.log(search_key);
         
         this.setState({
             amount: '',
@@ -52,9 +42,6 @@ class Deposit extends Component {
     }
 
     //displaying new list depending on account type
-   
-
-    
     render() {
         return (
             <div className='grid-parent'>
