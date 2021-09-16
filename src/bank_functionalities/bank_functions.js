@@ -196,26 +196,31 @@ export function send(sender, recipient, amount){
 
     const transactionType = 'transfer';
     
-    const sender_info = {
-        ...senderRecord,
-        balance: senderNewBalance
+    if(senderNewBalance < 0) {
+        alert ('Insufficient balance');
     }
+    else {
+        const sender_info = {
+            ...senderRecord,
+            balance: senderNewBalance
+        }
 
-    const recipient_info = {
-        ...recipientRecord,
-        balance: recipientNewBalance
+        const recipient_info = {
+            ...recipientRecord,
+            balance: recipientNewBalance
+        }
+
+        const transaction_info = {
+            refNo: Math.floor(100000 + Math.random() * 900000),
+            accountNo: senderRecord['accountNo'],
+            name: senderRecord['name'],
+            amount: amount,
+            date: get_current_date(),
+            transactionType: transactionType
+        }
+
+        localStorage.setItem(sender, JSON.stringify(sender_info));
+        localStorage.setItem(recipient, JSON.stringify(recipient_info));
+        localStorage.setItem(`history${localStorage.length + 1}`, JSON.stringify(transaction_info));
     }
-
-    const transaction_info = {
-        refNo: Math.floor(100000 + Math.random() * 900000),
-        accountNo: senderRecord['accountNo'],
-        name: senderRecord['name'],
-        amount: amount,
-        date: get_current_date(),
-        transactionType: transactionType
-    }
-
-    localStorage.setItem(sender, JSON.stringify(sender_info));
-    localStorage.setItem(recipient, JSON.stringify(recipient_info));
-    localStorage.setItem(`history${localStorage.length + 1}`, JSON.stringify(transaction_info));
 }
