@@ -27,7 +27,7 @@ body {
 .sidebar {
     display: flex;
     grid-area: sidebar;
-    height: 100vh;
+    height: 200vh;
     width: 12rem;
     background-color: #fafafa;
     flex-direction: column;

@@ -1,4 +1,4 @@
-import React from 'react'
+import '../css/navbar.css'
 import avatar from './img/avatar.png'
 
 const Navbar = () => {

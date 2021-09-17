@@ -7,6 +7,7 @@ import Send from './components/Send';
 import Dashboard from './components/Dashboard';
 import Sidebar from './components/Sidebar';
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import Navbar from './components/Navbar';
 
 function App() {
   // const [openModal, setOpenModal] = useState(false);
@@ -14,6 +15,7 @@ function App() {
     <BrowserRouter>
       <div className='app'>
         <Sidebar />
+        <Navbar />
         <Switch>
           <Route path='/Dashboard' component={Dashboard} />
           <Route path='/Deposit' component={Deposit} />
