@@ -58,7 +58,7 @@ const AddUserForm = ({users, setUsers, openModal, setOpenModal }) => {
                     </div>
                     <div id='balance-container'>
                         <label htmlFor='balance'>Balance</label>
-                        <input onChange={e=>handleChange(e)} type='number' name='balance' id='balance' min='50' required />
+                        <input onChange={e=>handleChange(e)} min='1' type='number' name='balance' id='balance' required />
                     </div>
                     <div id='buttons'>
                         <button id='cancel-btn' onClick={() => setOpenModal(false)}>Cancel</button>

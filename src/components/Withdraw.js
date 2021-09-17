@@ -22,9 +22,9 @@ const Withdraw = () => {
             <h1>Withdraw</h1>
             <form className='form-container'onSubmit={handleSubmit}>
                 {/* <label id='acct-no-label'>Account No.</label> */}
-                <input id='acct-no-input'type="number" placeholder='Account no.'onChange={e => setAccountNo(e.target.value)} />
+                <input id='acct-no-input'type="number" min="1" placeholder='Account no.'onChange={e => setAccountNo(e.target.value)} />
                 {/* <label id='amount-label'>Amount</label> */}
-                <input id='amount-input' type="number" placeholder='Amount' onChange={e => setAmount(e.target.value)} />
+                <input id='amount-input' type="number" min="1" placeholder='Amount' onChange={e => setAmount(e.target.value)} />
                 <button id='submit-btn'>Withdraw</button>
             </form>
         </div>

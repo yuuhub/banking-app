@@ -41,7 +41,7 @@ const Accounts = () => {
     return (
         <div className='acct-wrapper'>
             <h1 className='title'>Accounts</h1>
-            <input id='search-input' name='searchName' type='text' placeholder= 'search' onChange={handleSearch}/>
+            <input id='search-input' name='searchName' type='text' placeholder='Search' onChange={handleSearch}/>
             <button id='add-acct-btn' onClick={() => {setOpenModal(true)}}>Add Account</button>
             {openModal && <AddUserForm users={users} setUsers={setUsers} openModal={openModal} setOpenModal={setOpenModal}/>}
             <UserTable users={users}/>

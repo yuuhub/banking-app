@@ -19,7 +19,7 @@ const Send = () => {
             send(senderKey, recipientKey, amount);
         }
         else {
-            alert('One or both account numbers does not exist');
+            alert('One or both account numbers do not exist');
         }
     }
 
@@ -28,12 +28,11 @@ const Send = () => {
             <h1 className='title'>Send</h1>
             <form className='form-container' onSubmit={handleSend}>
                 {/* <label>Sender</label> */}
-                <input id='acct-no-input' type="text" placeholder='Sender Account No.'onChange={e => setSender(e.target.value)} />
+                <input id='acct-no-input' type="text" min="1 placeholder='Sender Account No.'onChange={e => setSender(e.target.value)} />
                 {/* <label>Recipient</label> */}
-                <input id='acct-no-input' type="text" placeholder='Recipient Account No.' onChange={e => setRecipient(e.target.value)} />
+                <input id='acct-no-input' type="text" min="1 placeholder='Recipient Account No.' onChange={e => setRecipient(e.target.value)} />
                 {/* <label>Amount</label> */}
-                <input id='amount-input' type="number"placeholder='Amount'onChange={e => setAmount(e.target.value)} />
-                <button id='submit-btn'>Send</button>
+                <input id='amount-input' type="number" min="1 placeholder='Amount'onChange={e => setAmount(e.target.value)} />
             </form>
         </div>
     )

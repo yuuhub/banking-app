@@ -5,16 +5,14 @@ import '../css/forms.css'
 const Deposit = () => {
     const [ accountNo, setAccountNo ] = useState('')
     const [ amount, setAmount ] = useState(0)
-
+    
     const handleSubmit = (e) => {
         let search_key = search_name(accountNo);
-        
         if(search_key !== null){
             deposit(accountNo, amount);
         } else {
             alert("User does not exist!");
         }
-
         setAmount('')
         setAccountNo('')
         e.preventDefault();
@@ -26,9 +24,9 @@ const Deposit = () => {
             <h1>Deposit</h1>
             <form className='form-container' onSubmit={handleSubmit}>
                 {/* <label>Account No.</label>  */}
-                <input id='acct-no-input' type='number' placeholder='Account no.' onChange={e => setAccountNo(e.target.value)} />
+                <input id='acct-no-input' type='number' min="1" name='accountNo' placeholder='Account no.' onChange={e => setAccountNo(e.target.value)} />
                 {/* <label>amount</label>  */}
-                <input id='amount-input'  type='number' placeholder='Amount' name='amount' onChange={e => setAmount(e.target.value)}/>
+                <input id='amount-input'  type='number' min='1' name='amount' placeholder='Amount' name='amount' onChange={e => setAmount(e.target.value)}/>
                 <button id='submit-btn'>Deposit</button>
             </form>
         </div>

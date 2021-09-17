@@ -1,11 +1,9 @@
 import '../css/usertable.css'
-import { useState } from 'react'
-import AddUserForm from './AddUserForm'
+
 
 const UserTable = ({users}) => {
     
-    return (
-    
+    return (    
         <div className='usertable-wrapper'>
             <table className='usertable-container'>
                 <thead className='thead-container'>
