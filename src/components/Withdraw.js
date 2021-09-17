@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {withdraw, search_name} from '../bank_functionalities/bank_functions'
-import '../css/withdraw.css'
+import '../css/withdrawDeposit.css'
 
 const Withdraw = () => {
     const [ accountNo, setAccountNo ] = useState("");
@@ -20,12 +20,12 @@ const Withdraw = () => {
     return (
         <div className='withdraw-wrapper'>
             <h1>Withdraw</h1>
-            <form id='withdraw-form-container'onSubmit={handleSubmit}>
+            <form className='form-container'onSubmit={handleSubmit}>
                 {/* <label id='acct-no-label'>Account No.</label> */}
-                <input id='acct-no-input'type="text" placeholder='Account no.'onChange={e => setAccountNo(e.target.value)} />
+                <input id='acct-no-input'type="number" placeholder='Account no.'onChange={e => setAccountNo(e.target.value)} />
                 {/* <label id='amount-label'>Amount</label> */}
                 <input id='amount-input' type="number" placeholder='Amount' onChange={e => setAmount(e.target.value)} />
-                <button id='withdraw-submit-btn'>Deposit</button>
+                <button id='submit-btn'>Withdraw</button>
             </form>
         </div>
     )

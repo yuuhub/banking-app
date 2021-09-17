@@ -5,7 +5,7 @@
           box-sizing: border-box;
 }
 
-#withdraw-form-container {
+.form-container {
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -28,7 +28,7 @@
   right: 50%;
 }
 
-#withdraw-form-container #acct-no-input, #withdraw-form-container #amount-input {
+.form-container #acct-no-input, .form-container #amount-input {
   width: 80%;
   height: 15%;
   border: none;
@@ -36,11 +36,11 @@
   outline: none;
 }
 
-#withdraw-form-container #withdraw-submit-btn {
+.form-container #submit-btn {
   width: 30%;
   padding: 0.4rem 0.3rem;
   border: none;
   background-color: #4b3153;
   color: #fafafa;
 }
-/*# sourceMappingURL=withdraw.css.map */
+/*# sourceMappingURL=withdrawDeposit.css.map */

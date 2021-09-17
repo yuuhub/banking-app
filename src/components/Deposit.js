@@ -1,5 +1,6 @@
 import { useState } from "react/cjs/react.development";
 import {deposit, search_name} from '../bank_functionalities/bank_functions';
+import '../css/withdrawDeposit.css'
 
 const Deposit = () => {
     const [ accountNo, setAccountNo ] = useState('')
@@ -21,18 +22,17 @@ const Deposit = () => {
     }
 
     return (
-        <div className='grid-parent'>
-                <div className='deposit-wrapper'>
-                    <h1>Deposit</h1>
-                    <form className='deposit-container' onSubmit={handleSubmit}>
-                        <label>Account No.</label> 
-                        <input type='text' onChange={e => setAccountNo(e.target.value)} />
-                        <label>amount</label> 
-                        <input type='number' name='amount' onChange={e => setAmount(e.target.value)}/>
-                        <input type="submit" value="Submit" />
-                    </form>
-                </div>
-            </div>
+        <div className='deposit-wrapper'>
+            <h1>Deposit</h1>
+            <form className='form-container' onSubmit={handleSubmit}>
+                {/* <label>Account No.</label>  */}
+                <input id='acct-no-input' type='number' placeholder='Account no.' onChange={e => setAccountNo(e.target.value)} />
+                {/* <label>amount</label>  */}
+                <input id='amount-input'  type='number' placeholder='Amount' name='amount' onChange={e => setAmount(e.target.value)}/>
+                <button id='submit-btn'>Deposit</button>
+            </form>
+        </div>
+    
     )
 }
 
