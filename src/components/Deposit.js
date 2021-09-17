@@ -4,7 +4,7 @@ import '../css/forms.css'
 
 const Deposit = () => {
     const [ accountNo, setAccountNo ] = useState('')
-    const [ amount, setAmount ] = useState(0)
+    const [ amount, setAmount ] = useState('')
 
     const handleSubmit = (e) => {
         let search_key = search_name(accountNo);
