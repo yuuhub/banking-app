@@ -25,8 +25,8 @@
 .stats-container .stats-card {
   position: relative;
   overflow: hidden;
-  height: 8rem;
-  width: 16rem;
+  height: 115px;
+  width: 25%;
   -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
           box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
   -ms-flex-wrap: wrap;
