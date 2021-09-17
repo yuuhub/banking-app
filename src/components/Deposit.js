@@ -11,6 +11,7 @@ const Deposit = () => {
 
         if(search_key !== null){
             deposit(accountNo, amount);
+            alert('succesful transaction')
         } else {
             alert("User does not exist!");
         }

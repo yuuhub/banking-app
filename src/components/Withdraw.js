@@ -11,6 +11,7 @@ const Withdraw = () => {
 
         if(search_key !== null){
             withdraw(accountNo, amount);
+            alert('succesful transaction')
         } else {
             alert("User does not exist!");
         }
