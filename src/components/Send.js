@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { search_name, send } from '../bank_functionalities/bank_functions';
-
+import '../css/forms.css'
 
 const Send = () => {
     const [ sender, setSender ] = useState("");
@@ -26,14 +26,13 @@ const Send = () => {
     return (
         <div>
             <h1 className='title'>Send</h1>
-            <form onSubmit={handleSend}>
-                <label>Sender Account No.</label>
-                <input type="number" min="1" onChange={e => setSender(e.target.value)} />
-                <label>Recipient Account No.</label>
-                <input type="number" min="1" onChange={e => setRecipient(e.target.value)} />
-                <label>Amount</label>
-                <input type="number" min="1" onChange={e => setAmount(e.target.value)} />
-                <button>Send</button>
+            <form className='form-container' onSubmit={handleSend}>
+                {/* <label>Sender</label> */}
+                <input id='acct-no-input' type="text" min="1 placeholder='Sender Account No.'onChange={e => setSender(e.target.value)} />
+                {/* <label>Recipient</label> */}
+                <input id='acct-no-input' type="text" min="1 placeholder='Recipient Account No.' onChange={e => setRecipient(e.target.value)} />
+                {/* <label>Amount</label> */}
+                <input id='amount-input' type="number" min="1 placeholder='Amount'onChange={e => setAmount(e.target.value)} />
             </form>
         </div>
     )

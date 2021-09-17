@@ -10,12 +10,6 @@ import { get_current_date } from "./utils";
 //     localStorage.setItem(get_last_key_from_localstorage(), JSON.stringify(user)); 
 // }
 
-
-/**
- * Function that returns the data from localStorage as
- * a list.
- * @param {*} userData 
- */
 export function list_users(userData){
     let newDate = new Date()
     let year = newDate.getFullYear();
@@ -92,15 +86,15 @@ export function calculateWithdrawals () {
     return totalWithdrawal;
 }
 
-export function search_name(name_to_search){
+export function search_name(accountNo_to_search){
     let key_of_name = null;
 
     for(let key in localStorage){
         //read the content from localStorage
         let user_rec = JSON.parse(localStorage.getItem(key));
         if (user_rec !== null) {
-            //check if name_to_search is the same 
-            if(name_to_search === user_rec['accountNo'] && key.includes('user')) {
+            //check if accountNo_to_search is the same 
+            if(accountNo_to_search === user_rec['accountNo'] && key.includes('user')) {
                 key_of_name = key;
             }
         }
@@ -138,8 +132,8 @@ export function deposit(account_to_search, amount){
 
 }
 
-export function balance(name_to_search){
-    let search_key = search_name(name_to_search);
+export function balance(accountNo_to_search){
+    let search_key = search_name(accountNo_to_search);
 
     // object destructuring
     let {accountType, name, balance} = JSON.parse(localStorage.getItem(search_key));
@@ -148,7 +142,6 @@ export function balance(name_to_search){
 
     return curr_bal;
 }
-
 
 export function withdraw(account_to_search, amount){
     const search_key = search_name(account_to_search);
@@ -159,6 +152,7 @@ export function withdraw(account_to_search, amount){
     const curr_bal = parseFloat(balance);
     const curr_amt = parseFloat(amount);
     const new_bal = curr_bal - curr_amt;
+    
     const transactionType = "withdrawal";
 
     if(curr_amt > curr_bal) {
@@ -184,8 +178,6 @@ export function withdraw(account_to_search, amount){
         localStorage.setItem(`history${localStorage.length + 1}`, JSON.stringify(history_info));
     }
 }
-
-
 
 export function send(sender, recipient, amount){
     const senderRecord = JSON.parse(localStorage.getItem(sender));

@@ -1,7 +1,7 @@
 import '../css/usertable.css'
 
 
-const UserTable = ({users, setUsers, onAccountTypeChange, onDeleteUser}) => {
+const UserTable = ({users}) => {
     
     return (    
         <div className='usertable-wrapper'>

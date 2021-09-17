@@ -36,6 +36,7 @@ const AddUserForm = ({users, setUsers, openModal, setOpenModal }) => {
         e.preventDefault();
         const { name } = user;
 
+        //creating new user and error handling
         if (!users.some((user) => user.name === name)){
             //create_user(user);
             const newUserList = [...users];

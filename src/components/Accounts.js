@@ -7,10 +7,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faSearch} from '@fortawesome/free-solid-svg-icons'
 
 const Accounts = () => {
-    const [openModal, setOpenModal] = useState(false);
-    const [search, setSearch] = useState('');
+    const [openModal, setOpenModal] = useState(false)
+    const [search, setSearch] = useState('')
     //this function holds users list and returns users 
-    const getUsers = (search) => {
+    const displayUsers = (search) => {
         let userData = [];
         userData = list_users(userData);
         if (search)
@@ -19,25 +19,24 @@ const Accounts = () => {
     }
 
     const handleSearch = (e) => {
-        const newSearchList = getUsers(e.target.value)
+        const newSearchList = displayUsers(e.target.value)
         setSearch(newSearchList)
         setUsers(newSearchList)
     }
 
-    //initial state of users list
-    const [users, setUsers] = useState(getUsers())   
+    const [users, setUsers] = useState(displayUsers())   
 
     //displaying new list depending on account type
-    const handleAccountTypeChange = (e) => {
-        const newUserList = getUsers(e.target.value)
-        setUsers(newUserList)
-    }
+    // const handleAccount = (e) => {
+    //     const newUserList = displayUsers(e.target.value)
+    //     setUsers(newUserList)
+    // }
     
     //deleting a user object using its ID
-    const handleDeleteUser = (id) => {
-        const newUserList = users.filter(user => user.id !== id)
-        setUsers(newUserList)
-    }
+    // const handleDeleteUser = (id) => {
+    //     const newUserList = users.filter(user => user.id !== id)
+    //     setUsers(newUserList)
+    // }
 
     return (
         <div className='acct-wrapper'>
@@ -45,7 +44,7 @@ const Accounts = () => {
             <input id='search-input' name='searchName' type='text' placeholder='Search' onChange={handleSearch}/>
             <button id='add-acct-btn' onClick={() => {setOpenModal(true)}}>Add Account</button>
             {openModal && <AddUserForm users={users} setUsers={setUsers} openModal={openModal} setOpenModal={setOpenModal}/>}
-            <UserTable users={users} onAccountTypeChange={handleAccountTypeChange} onDeleteUser={handleDeleteUser}/>
+            <UserTable users={users}/>
         </div>
     )
 }
