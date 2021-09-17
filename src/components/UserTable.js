@@ -1,11 +1,10 @@
+import { numberWithCommas } from '../bank_functionalities/utils'
 import '../css/usertable.css'
-import { useState } from 'react'
-import AddUserForm from './AddUserForm'
+
 
 const UserTable = ({users}) => {
     
-    return (
-    
+    return (    
         <div className='usertable-wrapper'>
             <table className='usertable-container'>
                 <thead className='thead-container'>
@@ -22,8 +21,8 @@ const UserTable = ({users}) => {
                     {
                         users.map((user) => <tr key={user.id}>
                             <td id='accountNo-data'>{user.accountNumber}</td>
-                            <td id='name-data'>{user.name}</td>
-                            <td id='balance-data'>{user.balance}</td>
+                            <td id='name-data'>{user.name.toUpperCase()}</td>
+                            <td id='balance-data'>{numberWithCommas(user.balance)}</td>
                             <td id='date-data'>{user.dateCreated}</td>
                             {/* <td>{user.accountType}</td> */}
                             {/* <td><button onClick={() => onDeleteUser(user.id)}>delete</button></td> */}

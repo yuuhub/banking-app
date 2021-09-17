@@ -1,0 +1,96 @@
+.stats-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  color: #4b3153;
+}
+
+.stats-container .stats-card::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+  background-image: url(../components/img/wavesOpacity.svg);
+}
+
+.stats-container .stats-card {
+  position: relative;
+  overflow: hidden;
+  height: 115px;
+  width: 40%;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  font-size: 15px;
+  margin-left: 33px;
+}
+
+.stats-container .stats-card .title {
+  margin-left: 10px;
+  margin-top: 8px;
+  margin-right: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.stats-container .stats-card .stat {
+  font-weight: 700;
+  margin-left: 10px;
+  font-size: 25px;
+}
+
+.welcome-container {
+  height: 130px;
+  width: 90%;
+  background-color: #4b3153;
+  margin-left: 33px;
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.welcome-container h1, .welcome-container p {
+  color: white;
+}
+
+.welcome-container h1 {
+  margin: 20px 30px;
+  font-size: 1.3125rem;
+}
+
+.welcome-container p {
+  margin-left: 30px;
+  font-size: 1.0625rem;
+}
+
+.welcome-container img {
+  width: 150px;
+  height: 84px;
+  position: relative;
+  left: 40px;
+  top: 15px;
+}
+/*# sourceMappingURL=dashboard.css.map */
