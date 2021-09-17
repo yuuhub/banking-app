@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import {withdraw, search_name} from '../bank_functionalities/bank_functions'
+import '../css/withdraw.css'
 
 const Withdraw = () => {
     const [ accountNo, setAccountNo ] = useState("");
@@ -7,26 +8,24 @@ const Withdraw = () => {
 
     const handleSubmit = (e) => {
         let search_key = search_name(accountNo);
-        console.log(search_key);
 
         if(search_key !== null){
             withdraw(accountNo, amount);
         } else {
             alert("User does not exist!");
         }
-
         e.preventDefault();
     }
 
     return (
-        <div>
+        <div className='withdraw-wrapper'>
             <h1>Withdraw</h1>
-            <form onSubmit={handleSubmit}>
-                <label>Account No.</label>
-                <input type="text" onChange={e => setAccountNo(e.target.value)} />
-                <label>Amount</label>
-                <input type="number" onChange={e => setAmount(e.target.value)} />
-                <button>Submit</button>
+            <form id='withdraw-form-container'onSubmit={handleSubmit}>
+                {/* <label id='acct-no-label'>Account No.</label> */}
+                <input id='acct-no-input'type="text" placeholder='Account no.'onChange={e => setAccountNo(e.target.value)} />
+                {/* <label id='amount-label'>Amount</label> */}
+                <input id='amount-input' type="number" placeholder='Amount' onChange={e => setAmount(e.target.value)} />
+                <button id='withdraw-submit-btn'>Deposit</button>
             </form>
         </div>
     )

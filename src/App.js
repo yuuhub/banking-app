@@ -1,6 +1,5 @@
 import './App.css';
 import React from 'react';
-import Modal from './components/Modal';
 import Deposit from './components/Deposit';
 import Accounts from './components/Accounts';
 import Withdraw from './components/Withdraw';

@@ -2,7 +2,7 @@ import '../css/usertable.css'
 import { useState } from 'react'
 import AddUserForm from './AddUserForm'
 
-const UserTable = ({users, setUsers, onAccountTypeChange, onDeleteUser}) => {
+const UserTable = ({users}) => {
     
     return (
     

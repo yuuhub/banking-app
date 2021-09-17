@@ -10,12 +10,6 @@ import { get_current_date } from "./utils";
 //     localStorage.setItem(get_last_key_from_localstorage(), JSON.stringify(user)); 
 // }
 
-
-/**
- * Function that returns the data from localStorage as
- * a list.
- * @param {*} userData 
- */
 export function list_users(userData){
     let newDate = new Date()
     let year = newDate.getFullYear();
@@ -149,7 +143,6 @@ export function balance(name_to_search){
     return curr_bal;
 }
 
-
 export function withdraw(account_to_search, amount){
     const search_key = search_name(account_to_search);
 
@@ -159,6 +152,7 @@ export function withdraw(account_to_search, amount){
     const curr_bal = parseFloat(balance);
     const curr_amt = parseFloat(amount);
     const new_bal = curr_bal - curr_amt;
+    
     const transactionType = "withdrawal";
 
     const user_info = {
@@ -179,8 +173,6 @@ export function withdraw(account_to_search, amount){
     localStorage.setItem(search_key, JSON.stringify(user_info));
     localStorage.setItem(`history${localStorage.length + 1}`, JSON.stringify(history_info));
 }
-
-
 
 export function send(sender, recipient, amount){
     const senderRecord = JSON.parse(localStorage.getItem(sender));

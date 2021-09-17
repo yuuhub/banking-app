@@ -36,6 +36,7 @@ const AddUserForm = ({users, setUsers, openModal, setOpenModal }) => {
         e.preventDefault();
         const { name } = user;
 
+        //creating new user and error handling
         if (!users.some((user) => user.name === name)){
             //create_user(user);
             const newUserList = [...users];
@@ -57,7 +58,7 @@ const AddUserForm = ({users, setUsers, openModal, setOpenModal }) => {
                     </div>
                     <div id='balance-container'>
                         <label htmlFor='balance'>Balance</label>
-                        <input onChange={e=>handleChange(e)} type='number' name='balance' id='balance' required />
+                        <input onChange={e=>handleChange(e)} type='number' name='balance' id='balance' min='50' required />
                     </div>
                     <div id='buttons'>
                         <button id='cancel-btn' onClick={() => setOpenModal(false)}>Cancel</button>
