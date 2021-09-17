@@ -13,8 +13,6 @@ const Send = () => {
         const senderKey = search_name(sender);
         const recipientKey = search_name(recipient);
 
-        console.log(senderKey, recipientKey);
-
         if(senderKey && recipientKey) {
             send(senderKey, recipientKey, amount);
             alert('successful transaction')
