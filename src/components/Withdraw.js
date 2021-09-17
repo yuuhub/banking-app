@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {withdraw, search_name} from '../bank_functionalities/bank_functions'
-import '../css/withdrawDeposit.css'
+import '../css/forms.css'
 
 const Withdraw = () => {
     const [ accountNo, setAccountNo ] = useState("");

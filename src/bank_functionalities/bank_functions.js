@@ -86,15 +86,15 @@ export function calculateWithdrawals () {
     return totalWithdrawal;
 }
 
-export function search_name(name_to_search){
+export function search_name(accountNo_to_search){
     let key_of_name = null;
 
     for(let key in localStorage){
         //read the content from localStorage
         let user_rec = JSON.parse(localStorage.getItem(key));
         if (user_rec !== null) {
-            //check if name_to_search is the same 
-            if(name_to_search === user_rec['accountNo'] && key.includes('user')) {
+            //check if accountNo_to_search is the same 
+            if(accountNo_to_search === user_rec['accountNo'] && key.includes('user')) {
                 key_of_name = key;
             }
         }
@@ -132,8 +132,8 @@ export function deposit(account_to_search, amount){
 
 }
 
-export function balance(name_to_search){
-    let search_key = search_name(name_to_search);
+export function balance(accountNo_to_search){
+    let search_key = search_name(accountNo_to_search);
 
     // object destructuring
     let {accountType, name, balance} = JSON.parse(localStorage.getItem(search_key));
