@@ -1,4 +1,5 @@
 import { get_current_date } from "./utils";
+import { numberWithCommas } from "./utils";
 
 // /**
 //  * Function that handles the creation of users and passing it 
@@ -152,6 +153,11 @@ export function withdraw(account_to_search, amount){
     const curr_bal = parseFloat(balance);
     const curr_amt = parseFloat(amount);
     const new_bal = curr_bal - curr_amt;
+
+    if(curr_amt > curr_bal) {
+        alert('not enough balance');
+        return 
+    }
     
     const transactionType = "withdrawal";
 
@@ -187,7 +193,7 @@ export function send(sender, recipient, amount){
     const recipientNewBalance = parseFloat(recipientRecord['balance']) + parseFloat(amount);
 
     const transactionType = 'transfer';
-    
+
     if(senderNewBalance < 0) {
         alert ('Insufficient balance');
     }
