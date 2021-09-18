@@ -15,8 +15,6 @@ const Send = () => {
 
         if(senderKey && recipientKey) {
             send(senderKey, recipientKey, amount);
-            alert('successful transaction')
-            setSender('');
         }
         else {
             alert('One or both account numbers do not exist');

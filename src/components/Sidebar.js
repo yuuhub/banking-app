@@ -11,7 +11,7 @@ export const sidebarMenu = [
     {
         title: 'Dashboard',
         icon: <FontAwesomeIcon icon={faHome}></FontAwesomeIcon>,
-        link: '/dashboard'
+        link: '/'
     },
     {
         title: 'Accounts',

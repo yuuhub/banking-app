@@ -11,8 +11,7 @@ const Accounts = () => {
     const [search, setSearch] = useState('')
     //this function holds users list and returns users 
     const displayUsers = (search) => {
-        let userData = [];
-        userData = list_users(userData);
+        const userData = list_users();
         if (search)
             return userData.filter(user => user.name === search)
         return userData;

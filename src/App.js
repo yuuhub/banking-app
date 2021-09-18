@@ -17,7 +17,7 @@ function App() {
         <Sidebar />
         <Navbar />
         <Switch>
-          <Route path='/Dashboard' component={Dashboard} />
+          <Route exact path='/' component={Dashboard} />
           <Route path='/Deposit' component={Deposit} />
           <Route path='/Accounts' component={Accounts} />
           <Route path='/Withdraw' component={Withdraw} />

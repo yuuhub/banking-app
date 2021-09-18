@@ -128,7 +128,7 @@ export function deposit(account_to_search, amount){
    
     localStorage.setItem(search_key, JSON.stringify(user_info));
     localStorage.setItem(`history${localStorage.length + 1}`, JSON.stringify(history_info));
-
+    alert('succesful transaction')
 }
 
 export function withdraw(account_to_search, amount){
@@ -141,10 +141,6 @@ export function withdraw(account_to_search, amount){
     const curr_amt = parseFloat(amount);
     const new_bal = curr_bal - curr_amt;
 
-    if(curr_amt > curr_bal) {
-        alert('not enough balance');
-        return 
-    }
     
     const transactionType = "withdrawal";
 
@@ -169,6 +165,7 @@ export function withdraw(account_to_search, amount){
     
         localStorage.setItem(search_key, JSON.stringify(user_info));
         localStorage.setItem(`history${localStorage.length + 1}`, JSON.stringify(history_info));
+        alert('succesful transaction')
     }
 }
 
@@ -207,5 +204,7 @@ export function send(sender, recipient, amount){
         localStorage.setItem(sender, JSON.stringify(sender_info));
         localStorage.setItem(recipient, JSON.stringify(recipient_info));
         localStorage.setItem(`history${localStorage.length + 1}`, JSON.stringify(transaction_info));
+        alert('successful transaction')
     }
+
 }
