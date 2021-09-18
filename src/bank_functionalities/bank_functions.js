@@ -11,7 +11,8 @@ import { numberWithCommas } from "./utils";
 //     localStorage.setItem(get_last_key_from_localstorage(), JSON.stringify(user)); 
 // }
 
-export function list_users(userData){
+export function list_users(){
+    let userData = [];
     let newDate = new Date()
     let year = newDate.getFullYear();
     for (let key in localStorage){
@@ -130,7 +131,7 @@ export function deposit(account_to_search, amount){
    
     localStorage.setItem(search_key, JSON.stringify(user_info));
     localStorage.setItem(`history${localStorage.length + 1}`, JSON.stringify(history_info));
-
+    alert('succesful transaction')
 }
 
 export function balance(accountNo_to_search){
@@ -154,10 +155,6 @@ export function withdraw(account_to_search, amount){
     const curr_amt = parseFloat(amount);
     const new_bal = curr_bal - curr_amt;
 
-    if(curr_amt > curr_bal) {
-        alert('not enough balance');
-        return 
-    }
     
     const transactionType = "withdrawal";
 
@@ -182,6 +179,7 @@ export function withdraw(account_to_search, amount){
     
         localStorage.setItem(search_key, JSON.stringify(user_info));
         localStorage.setItem(`history${localStorage.length + 1}`, JSON.stringify(history_info));
+        alert('succesful transaction')
     }
 }
 
@@ -220,5 +218,7 @@ export function send(sender, recipient, amount){
         localStorage.setItem(sender, JSON.stringify(sender_info));
         localStorage.setItem(recipient, JSON.stringify(recipient_info));
         localStorage.setItem(`history${localStorage.length + 1}`, JSON.stringify(transaction_info));
+        alert('successful transaction')
     }
+
 }

@@ -20,6 +20,7 @@
   -webkit-transform: rotate(-180deg);
           transform: rotate(-180deg);
   background-image: url(../components/img/wavesOpacity.svg);
+  background-size: cover;
 }
 
 .stats-container .stats-card {
