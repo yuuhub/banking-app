@@ -11,10 +11,7 @@ import { numberWithCommas } from "./utils";
 //     localStorage.setItem(get_last_key_from_localstorage(), JSON.stringify(user)); 
 // }
 
-export function list_users(){
-    let userData = [];
-    let newDate = new Date()
-    let year = newDate.getFullYear();
+export function list_users(userData){
     for (let key in localStorage){
         let user_rec = JSON.parse(localStorage.getItem(key));
         if(user_rec !== null && key.includes('user')){
@@ -132,17 +129,6 @@ export function deposit(account_to_search, amount){
     localStorage.setItem(search_key, JSON.stringify(user_info));
     localStorage.setItem(`history${localStorage.length + 1}`, JSON.stringify(history_info));
     alert('succesful transaction')
-}
-
-export function balance(accountNo_to_search){
-    let search_key = search_name(accountNo_to_search);
-
-    // object destructuring
-    let {accountType, name, balance} = JSON.parse(localStorage.getItem(search_key));
-    
-    let curr_bal = parseFloat(balance);
-
-    return curr_bal;
 }
 
 export function withdraw(account_to_search, amount){

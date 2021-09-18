@@ -70,7 +70,7 @@ const Dashboard = () => {
                                     <td id='refNo-data'>{item.refNo}</td>
                                     <td id='type-date'>{item.transactionType.toUpperCase()}</td>
                                     <td id='account-data'>{item.accountNo}</td>
-                                    <td id='amount-data'>{item.amount}</td>
+                                    <td id='amount-data'>{numberWithCommas(item.amount)}</td>
                                     <td id='date-data'>{item.date}</td>
                                 </tr>
                             )
