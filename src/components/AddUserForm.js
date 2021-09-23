@@ -20,6 +20,7 @@ const AddUserForm = ({users, setUsers, openModal, setOpenModal }) => {
     
 
     const handleChange = (e) => {
+        console.log("user", user);
         const newUser = {
             ...user, 
             accountNo: (localStorage.length + 1).toLocaleString('en-US', {
