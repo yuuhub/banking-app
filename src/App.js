@@ -12,7 +12,7 @@ import Navbar from './components/Navbar';
 function App() {
   // const [openModal, setOpenModal] = useState(false);
   return (
-    <BrowserRouter basename="/banking-app">
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div className='app'>
         <Sidebar />
         <Navbar />
