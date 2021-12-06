@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/banking-app/static/css/main.025609f3.chunk.css",
-    "main.js": "/banking-app/static/js/main.fbef3aa1.chunk.js",
-    "main.js.map": "/banking-app/static/js/main.fbef3aa1.chunk.js.map",
+    "main.css": "/banking-app/static/css/main.463c6a76.chunk.css",
+    "main.js": "/banking-app/static/js/main.577cf3a8.chunk.js",
+    "main.js.map": "/banking-app/static/js/main.577cf3a8.chunk.js.map",
     "runtime-main.js": "/banking-app/static/js/runtime-main.15230fdc.js",
     "runtime-main.js.map": "/banking-app/static/js/runtime-main.15230fdc.js.map",
     "static/js/2.b3b44202.chunk.js": "/banking-app/static/js/2.b3b44202.chunk.js",
     "static/js/2.b3b44202.chunk.js.map": "/banking-app/static/js/2.b3b44202.chunk.js.map",
     "index.html": "/banking-app/index.html",
-    "static/css/main.025609f3.chunk.css.map": "/banking-app/static/css/main.025609f3.chunk.css.map",
+    "static/css/main.463c6a76.chunk.css.map": "/banking-app/static/css/main.463c6a76.chunk.css.map",
     "static/js/2.b3b44202.chunk.js.LICENSE.txt": "/banking-app/static/js/2.b3b44202.chunk.js.LICENSE.txt",
     "static/media/4565.2760f7ef.png": "/banking-app/static/media/4565.2760f7ef.png",
     "static/media/avatar.fafdb330.png": "/banking-app/static/media/avatar.fafdb330.png",
@@ -17,7 +17,7 @@
   "entrypoints": [
     "static/js/runtime-main.15230fdc.js",
     "static/js/2.b3b44202.chunk.js",
-    "static/css/main.025609f3.chunk.css",
-    "static/js/main.fbef3aa1.chunk.js"
+    "static/css/main.463c6a76.chunk.css",
+    "static/js/main.577cf3a8.chunk.js"
   ]
 }
